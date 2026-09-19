@@ -1,0 +1,40 @@
+{
+  "HEADER": {
+    "CONTACT": "Contáctanos",
+    "CHANGE_LANG": "EN"
+  },
+  "NAV": {
+    "HOME": "Inicio",
+    "ABOUT": "Sobre nosotros",
+    "VISION": "Nuestra visión",
+    "PROJECTS": "Proyectos"
+  },
+  "SCROLLY": {
+    "HOME": {
+      "TITLE": "Future Webs",
+      "SUBTITLE": "Traspasa el horizonte de sucesos digitales.",
+      "BTN_START": "Iniciar Viaje"
+    },
+    "ABOUT": {
+      "TITLE": "Sobre nosotros",
+      "TEXT": "No hacemos simples páginas. Construimos ecosistemas digitales. Combinamos arquitecturas full-stack robustas con interfaces dinámicas para crear plataformas que rinden al máximo nivel."
+    },
+    "VISION": {
+      "TITLE": "Nuestra Visión",
+      "TEXT": "Llevar la ingeniería de software al límite. Romper la monotonía visual mediante código modular y experiencias inmersivas que absorben por completo la atención de tus usuarios."
+    },
+    "PROJECTS": {
+      "TITLE": "Proyectos",
+      "TEXT": "Sistemas complejos, soluciones elegantes. Explora las singularidades que hemos programado.",
+      "BTN_VIEW": "Ver Proyectos"
+    },
+    "CONTACT": {
+      "TITLE": "Contacto",
+      "TEXT": "La singularidad te espera. Inicia tu proyecto hoy.",
+      "PLACEHOLDER_NAME": "Tu Nombre",
+      "PLACEHOLDER_EMAIL": "Tu Correo",
+      "PLACEHOLDER_MESSAGE": "¿Qué vamos a construir?",
+      "BTN_SUBMIT": "Enviar Datos"
+    }
+  }
+}

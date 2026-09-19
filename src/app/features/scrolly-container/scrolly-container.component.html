@@ -1,0 +1,60 @@
+
+    <div class="pin-wrapper" #pinWrapper>
+      <div class="scene-3d">
+
+        <!-- 1. Inicio -->
+        <section class="panel" id="home">
+          <div class="content shake-0">
+            <h1 class="title">{{ 'SCROLLY.HOME.TITLE' | translate }}</h1>
+            <p class="subtitle">{{ 'SCROLLY.HOME.SUBTITLE' | translate }}</p>
+            <button class="btn-start">{{ 'SCROLLY.HOME.BTN_START' | translate }}</button>
+          </div>
+        </section>
+
+        <!-- 2. Sobre Nosotros -->
+        <section class="panel" id="about">
+          <div class="content shake-1">
+            <div class="glowing-accent"></div>
+            <h2>{{ 'SCROLLY.ABOUT.TITLE' | translate }}</h2>
+            <p>{{ 'SCROLLY.ABOUT.TEXT' | translate }}</p>
+          </div>
+        </section>
+
+        <!-- 3. Visión -->
+        <section class="panel" id="vision">
+          <div class="content shake-2">
+            <div class="glowing-accent"></div>
+            <h2>{{ 'SCROLLY.VISION.TITLE' | translate }}</h2>
+            <p>{{ 'SCROLLY.VISION.TEXT' | translate }}</p>
+          </div>
+        </section>
+
+        <!-- 4. Proyectos -->
+        <section class="panel" id="projects">
+          <div class="content shake-3">
+            <div class="glowing-accent"></div>
+            <h2>{{ 'SCROLLY.PROJECTS.TITLE' | translate }}</h2>
+            <p>{{ 'SCROLLY.PROJECTS.TEXT' | translate }}</p>
+            <button class="btn-action" (click)="abrirProyectos()">{{ 'SCROLLY.PROJECTS.BTN_VIEW' | translate }}</button>
+          </div>
+        </section>
+
+        <!-- 5. Contacto -->
+        <section class="panel" id="contact">
+          <div class="content shake-4">
+            <div class="glowing-accent danger"></div>
+            <h2>{{ 'SCROLLY.CONTACT.TITLE' | translate }}</h2>
+            <p>{{ 'SCROLLY.CONTACT.TEXT' | translate }}</p>
+
+            <form class="contact-form" (submit)="enviarFormulario($event)">
+              <input type="text" [placeholder]="'SCROLLY.CONTACT.PLACEHOLDER_NAME' | translate" required>
+              <input type="email" [placeholder]="'SCROLLY.CONTACT.PLACEHOLDER_EMAIL' | translate" required>
+              <textarea [placeholder]="'SCROLLY.CONTACT.PLACEHOLDER_MESSAGE' | translate" rows="3" required></textarea>
+              <button type="submit" class="btn-submit">{{ 'SCROLLY.CONTACT.BTN_SUBMIT' | translate }}</button>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </div>
+

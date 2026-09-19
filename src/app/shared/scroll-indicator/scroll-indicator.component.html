@@ -1,0 +1,8 @@
+<nav class="scroll-indicator">
+  @for (section of sections; track section.id; let i = $index) {
+    <div class="indicator-item" (click)="goTo(i)">
+      <span class="label">{{ section.labelKey | translate }}</span>
+      <div class="dot" [class.active]="currentIndex() === i"></div>
+    </div>
+  }
+</nav>

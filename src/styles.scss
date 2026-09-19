@@ -1,0 +1,34 @@
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /* ESTO ES CLAVE: Mata el scroll nativo */
+  background-color: transparent;
+  color: #ffffff;
+  font-family: sans-serif;
+  touch-action: none; /* Evita que el móvil intente hacer scroll nativo y quite el error de consola */
+}
+
+/* Configuraciones recomendadas por Lenis para Smooth Scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

@@ -1,0 +1,43 @@
+/* El :host bloquea el fondo completo e impide que el scroll nativo mueva el video */
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.video-container {
+  /* Hacemos el contenedor más grande que la pantalla (110%)
+     para poder moverlo sin que se vean los bordes negros */
+  width: 110vw;
+  height: 110vh;
+  position: absolute;
+  top: -5vh; /* Compensamos la mitad del extra (10vh / 2) */
+  left: -5vw;
+  will-change: transform; /* Optimización de GPU para GSAP */
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8; /* Suavizamos el brillo para que no moleste a los ojos */
+  /* Ajuste de color opcional para darle más intensidad al agujero negro */
+  filter: contrast(1.2) brightness(0.9);
+}
+
+.vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradiente radial: transparente en el centro, casi negro en los bordes */
+  background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.95) 100%);
+  pointer-events: none; /* Permite hacer clic "a través" de esta capa */
+}

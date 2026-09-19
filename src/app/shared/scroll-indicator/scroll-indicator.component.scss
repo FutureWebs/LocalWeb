@@ -1,0 +1,75 @@
+.scroll-indicator {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999; /* Por encima del 3D */
+  pointer-events: auto; /* Fuerza a que sea clickeable */
+
+  .indicator-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    cursor: pointer;
+    group: hover; // Para controlar hover anidado
+
+    .label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s ease;
+      /* Evita que el texto moleste si no se le hace hover */
+      pointer-events: none;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    &:hover, &.active {
+      .label {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      .dot {
+        background: white;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        transform: scale(1.5);
+      }
+    }
+  }
+
+  /* ... código que ya tenías ... */
+
+  /* ADAPTACIÓN MÓVIL */
+  @media (max-width: 768px) {
+    .scroll-indicator {
+      top: auto;
+      bottom: 20px;
+      right: 50%;
+      transform: translateX(50%); /* Centrado horizontal en la base */
+      flex-direction: row; /* Puntos en horizontal */
+      width: auto;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+
+      .indicator-item {
+        flex-direction: column; /* Para que el punto esté debajo de la label (si decides mostrarla) */
+        margin: 0 0.5rem;
+
+        .label { display: none; } /* Ocultamos los textos largos en móvil */
+      }
+    }
+  }
+
+}
+

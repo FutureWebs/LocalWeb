@@ -1,0 +1,7 @@
+<div class="video-container" #videoContainer>
+  <!-- [muted]="true" fuerza a Angular a setear la propiedad en el DOM, clave para Safari/iOS -->
+  <video #bgVideo autoplay loop muted playsinline [muted]="true">
+    <source src="assets/blackhole.mp4" type="video/mp4">
+  </video>
+</div>
+<div class="vignette"></div>

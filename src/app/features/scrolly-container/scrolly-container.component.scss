@@ -1,0 +1,121 @@
+.pin-wrapper {
+  width: 100vw; height: 100vh;
+  position: absolute; top: 0; left: 0;
+}
+
+.scene-3d {
+  width: 100%; height: 100%;
+  perspective: 2500px; /* Profundidad aumentada para exagerar la vista lateral */
+  transform-style: preserve-3d;
+}
+
+.panel {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; align-items: center; text-align: center;
+  opacity: 0; visibility: hidden; backface-visibility: hidden;
+}
+
+/* =========================================
+   DISEÑO DEL CONTENIDO (GLASSMORPHISM PREMIUM)
+   ========================================= */
+.content {
+  position: relative;
+  width: 85%; max-width: 650px;
+  padding: 4rem 3rem;
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(15, 15, 15, 0.6), rgba(5, 5, 5, 0.8));
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255,255,255,0.1);
+  overflow: hidden;
+
+  /* Línea de luz superior que le da personalidad */
+  .glowing-accent {
+    position: absolute; top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 60%; height: 2px;
+    background: linear-gradient(90deg, transparent, #00d2ff, transparent);
+    box-shadow: 0 0 20px 2px #00d2ff;
+
+    &.danger {
+      background: linear-gradient(90deg, transparent, #ff4b2b, transparent);
+      box-shadow: 0 0 20px 2px #ff4b2b;
+    }
+  }
+
+  h1, h2 {
+    font-size: 3.5rem; font-weight: 900; margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #ffffff, #888888);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    letter-spacing: -2px;
+  }
+
+  .title { font-size: 5rem; }
+
+  p {
+    font-size: 1.25rem; line-height: 1.7; color: #b0b0b0;
+    font-weight: 300; margin-bottom: 2rem;
+  }
+}
+
+/* =========================================
+   BOTONES Y FORMULARIO
+   ========================================= */
+button {
+  padding: 1rem 3rem; border: none; border-radius: 50px;
+  font-size: 1.1rem; font-weight: 600; cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-start, .btn-action {
+  background: white; color: black;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+
+  &:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.5);
+  }
+}
+
+.contact-form {
+  display: flex; flex-direction: column; gap: 1rem;
+
+  input, textarea {
+    width: 100%; padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px; color: white;
+    font-size: 1rem; transition: border 0.3s;
+    font-family: inherit;
+
+    &:focus { outline: none; border-color: #ff4b2b; background: rgba(255, 255, 255, 0.07); }
+  }
+
+  .btn-submit {
+    margin-top: 1rem;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    color: white; box-shadow: 0 0 20px rgba(255, 75, 43, 0.4);
+
+    &:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 75, 43, 0.8); }
+  }
+}
+
+/* =========================================
+   SISTEMA DE VIBRACIÓN (GRAVEDAD)
+   ========================================= */
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(var(--shake-x), var(--shake-y)) rotate(var(--shake-rot)); }
+  50% { transform: translate(calc(var(--shake-x) * -1), calc(var(--shake-y) * -1)) rotate(calc(var(--shake-rot) * -1)); }
+  75% { transform: translate(var(--shake-y), var(--shake-x)) rotate(0deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.shake-0 { --shake-x: 0px; --shake-y: 0px; --shake-rot: 0deg; }
+.shake-1 { --shake-x: 1px; --shake-y: 1px; --shake-rot: 0.5deg; animation: shake 4s infinite ease-in-out; }
+.shake-2 { --shake-x: 2px; --shake-y: 2px; --shake-rot: 1deg; animation: shake 2s infinite ease-in-out; }
+.shake-3 { --shake-x: 4px; --shake-y: -3px; --shake-rot: 1.5deg; animation: shake 0.5s infinite linear; }
+.shake-4 { --shake-x: 6px; --shake-y: 5px; --shake-rot: 2deg; animation: shake 0.1s infinite linear; }

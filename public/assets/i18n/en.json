@@ -1,0 +1,40 @@
+{
+  "HEADER": {
+    "CONTACT": "Contact Us",
+    "CHANGE_LANG": "ES"
+  },
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About Us",
+    "VISION": "Our Vision",
+    "PROJECTS": "Projects"
+  },
+  "SCROLLY": {
+    "HOME": {
+      "TITLE": "Future Webs",
+      "SUBTITLE": "Cross the digital event horizon.",
+      "BTN_START": "Start Journey"
+    },
+    "ABOUT": {
+      "TITLE": "About Us",
+      "TEXT": "We don't just make pages. We build digital ecosystems. We combine robust full-stack architectures with dynamic interfaces to create platforms that perform at the highest level."
+    },
+    "VISION": {
+      "TITLE": "Our Vision",
+      "TEXT": "Pushing software engineering to the limit. Breaking visual monotony through modular code and immersive experiences that fully absorb your users' attention."
+    },
+    "PROJECTS": {
+      "TITLE": "Projects",
+      "TEXT": "Complex systems, elegant solutions. Explore the singularities we have programmed.",
+      "BTN_VIEW": "View Projects"
+    },
+    "CONTACT": {
+      "TITLE": "Contact",
+      "TEXT": "The singularity awaits. Start your project today.",
+      "PLACEHOLDER_NAME": "Your Name",
+      "PLACEHOLDER_EMAIL": "Your Email",
+      "PLACEHOLDER_MESSAGE": "What are we building?",
+      "BTN_SUBMIT": "Send Data"
+    }
+  }
+}
