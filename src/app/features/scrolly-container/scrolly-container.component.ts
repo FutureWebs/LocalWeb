@@ -58,12 +58,13 @@ export class ScrollyContainerComponent implements AfterViewInit, OnDestroy {
     this.masterTl = gsap.timeline({ paused: true });
 
     this.panels.forEach((panel, i) => {
-      // Aquí forzamos la vista lateral derecha para todas las secciones (excepto el home)
+
+      // AQUÍ ESTÁ EL SECRETO DE LA VISTA LATERAL
       gsap.set(panel, {
         z: i === 0 ? 0 : -4000,
         autoAlpha: i === 0 ? 1 : 0,
-        rotateY: i === 0 ? 0 : -45,  // Siempre -45 grados (inclinado desde la derecha)
-        xPercent: i === 0 ? 0 : 60,  // Siempre nace 60% desplazado a la derecha
+        rotateY: i === 0 ? 0 : -55,  // -55 grados lo inclina fuertemente hacia la derecha
+        xPercent: i === 0 ? 0 : 80,  // Lo arrincona al lado derecho de la pantalla al nacer
         scale: i === 0 ? 1 : 0.6
       });
 
@@ -71,9 +72,10 @@ export class ScrollyContainerComponent implements AfterViewInit, OnDestroy {
         const currentPanel = this.panels[i];
         const nextPanel = this.panels[i + 1];
 
-        // Al irse hacia atrás de la cámara, los giramos un poco hacia la izquierda para dar curva
-        this.masterTl.to(currentPanel, { z: 2500, autoAlpha: 0, rotateY: 15, xPercent: -20, scale: 2, ease: "none", duration: 1 }, i);
-        // Al entrar, se enderezan en el centro
+        // El panel que se va, gira hacia la izquierda (-20) para dar la sensación de que te sobrepasa
+        this.masterTl.to(currentPanel, { z: 2500, autoAlpha: 0, rotateY: 20, xPercent: -30, scale: 2, ease: "none", duration: 1 }, i);
+
+        // El panel que entra se endereza (0) y se centra (0)
         this.masterTl.to(nextPanel, { z: 0, autoAlpha: 1, rotateY: 0, xPercent: 0, scale: 1, ease: "none", duration: 1 }, i);
       }
     });
