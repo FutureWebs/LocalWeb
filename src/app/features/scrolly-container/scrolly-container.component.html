@@ -44,8 +44,8 @@
         <form class="contact-form" (submit)="enviarFormulario($event)">
           <input id="nombreCompleto" type="text" [placeholder]="'SCROLLY.CONTACT.PLACEHOLDER_NAME' | translate" required>
           <input id="email" type="email" [placeholder]="'SCROLLY.CONTACT.PLACEHOLDER_EMAIL' | translate" required>
-          <textarea [placeholder]="'SCROLLY.CONTACT.PLACEHOLDER_MESSAGE' | translate" rows="3" required></textarea>
-          <button id="mensaje" type="submit" class="btn-submit">{{ 'SCROLLY.CONTACT.BTN_SUBMIT' | translate }}</button>
+          <textarea id="mensaje" [placeholder]="'SCROLLY.CONTACT.PLACEHOLDER_MESSAGE' | translate" rows="3" required></textarea>
+          <button id="boton" type="submit" class="btn-submit">{{ 'SCROLLY.CONTACT.BTN_SUBMIT' | translate }}</button>
         </form>
       </div>
     </section>

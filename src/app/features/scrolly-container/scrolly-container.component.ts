@@ -211,11 +211,13 @@ export class ScrollyContainerComponent implements AfterViewInit, OnDestroy {
 
   async enviarFormulario(event: Event) {
     event.preventDefault();
-    const data : ContactFormData = {
-      nombreCompleto: document.getElementById('nombreCompleto')?.nodeValue || 'ERROR3', //CAMBIAR ETIQUETA nodeValue PORQUE NO FUNCIONA, value TAMPOCO FUNCIONA
-      correo: document.getElementById('email')?.nodeValue || 'ERROR3',
-      mensaje: document.getElementById('mensaje')?.nodeValue || 'ERROR3',
-    }
+
+    const data: ContactFormData = {
+      nombreCompleto: (document.getElementById('nombreCompleto') as HTMLInputElement)?.value || 'ERROR3',
+      correo: (document.getElementById('email') as HTMLInputElement)?.value || 'ERROR3',
+      mensaje: (document.getElementById('mensaje') as HTMLTextAreaElement)?.value || 'ERROR3',
+    };
+
     const succesfull = await this.emailService.sendEmail(data);
     if (succesfull) {
       console.log('email enviado');
