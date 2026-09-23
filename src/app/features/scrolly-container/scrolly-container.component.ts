@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import { ScrollService } from '../../core/services/scroll.service';
 import {ThemeService} from '../../core/services/theme.service';
 import {TranslatePipe} from '@ngx-translate/core';
+import {ContactFormData, EmailService} from '../../core/services/email.service';
 
 @Component({
   selector: 'app-scrolly-container',
@@ -18,6 +19,7 @@ export class ScrollyContainerComponent implements AfterViewInit, OnDestroy {
   private ngZone = inject(NgZone);
   private scrollService = inject(ScrollService);
   private themeService = inject(ThemeService);
+  private emailService = inject(EmailService);
   private panels: HTMLElement[] = [];
   private masterTl!: gsap.core.Timeline;
 
@@ -207,12 +209,20 @@ export class ScrollyContainerComponent implements AfterViewInit, OnDestroy {
     this.themeService.currentView.set('projects');
   }
 
-  enviarFormulario(event: Event) {
-
-
-
+  async enviarFormulario(event: Event) {
     event.preventDefault();
-    this.absorberEnAgujeroNegro();
+    const data : ContactFormData = {
+      nombreCompleto: document.getElementById('nombreCompleto')?.nodeValue || 'ERROR3', //CAMBIAR ETIQUETA nodeValue PORQUE NO FUNCIONA, value TAMPOCO FUNCIONA
+      correo: document.getElementById('email')?.nodeValue || 'ERROR3',
+      mensaje: document.getElementById('mensaje')?.nodeValue || 'ERROR3',
+    }
+    const succesfull = await this.emailService.sendEmail(data);
+    if (succesfull) {
+      console.log('email enviado');
+      this.absorberEnAgujeroNegro();
+    } else {
+      console.log('fallo enviado');
+    }
   }
 
   private absorberEnAgujeroNegro() {
