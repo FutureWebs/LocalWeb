@@ -32,10 +32,18 @@ export class ScrollyContainerComponent implements AfterViewInit, OnDestroy {
 
   constructor() {
     effect(() => {
-      const targetIndex = this.scrollService.currentSectionIndex();
-      this.animateToStation(targetIndex);
+      // Si entramos a la vista de proyectos, deshabilitamos el scroll 3D
+      if (this.themeService.currentView() === 'projects') {
+        this.isAnimating = true; // Bloquea los eventos de rueda
+      } else {
+        this.isAnimating = false; // Los libera al volver
+        const targetIndex = this.scrollService.currentSectionIndex();
+        this.animateToStation(targetIndex);
+      }
     });
   }
+
+
 
   ngAfterViewInit(): void {
     this.panels = gsap.utils.toArray('.panel');
@@ -114,32 +122,32 @@ export class ScrollyContainerComponent implements AfterViewInit, OnDestroy {
   // ==========================================
   // LÓGICA PARA MÓVILES (Táctil)
   // ==========================================
+
   private onTouchStart(e: TouchEvent) {
-    // Guardamos dónde empezó el dedo y en qué momento
+    // Si estamos en proyectos, ignoramos esto para dejar el scroll nativo
+    if (this.themeService.currentView() === 'projects') return;
+
     this.touchStartY = e.touches[0].clientY;
     this.touchStartTime = Date.now();
   }
 
   private onTouchMove(e: TouchEvent) {
-    // CRÍTICO: Evita el "pull to refresh" nativo del celular y rebotes
+    if (this.themeService.currentView() === 'projects') return;
     e.preventDefault();
   }
 
   private onTouchEnd(e: TouchEvent) {
+    if (this.themeService.currentView() === 'projects') return;
     if (this.isAnimating) return;
 
     const touchEndY = e.changedTouches[0].clientY;
-    const deltaY = this.touchStartY - touchEndY; // Positivo si deslizamos hacia arriba (bajar página)
+    const deltaY = this.touchStartY - touchEndY;
     const deltaTime = Date.now() - this.touchStartTime;
 
-    // Solo accionamos si fue un deslizamiento intencional (> 40px)
     if (Math.abs(deltaY) > 40) {
-      // Calculamos la velocidad del dedo (píxeles por milisegundo)
       const velocity = Math.abs(deltaY) / deltaTime;
+      let stationsToJump = 1;
 
-      let stationsToJump = 1; // Deslizamiento normal = 1 estación
-
-      // Si el dedo fue muy rápido, permitimos saltar 2 estaciones de golpe
       if (velocity > 1.2) {
         stationsToJump = 2;
       }
@@ -195,11 +203,14 @@ export class ScrollyContainerComponent implements AfterViewInit, OnDestroy {
 
 
   abrirProyectos() {
-    // Aquí puedes abrir tu modal/componente de proyectos.
-    // Cuando ese componente emita el evento "volver", llamas a absorberEnAgujeroNegro()
+    // Cambiamos a la vista de proyectos al instante
+    this.themeService.currentView.set('projects');
   }
 
   enviarFormulario(event: Event) {
+
+
+
     event.preventDefault();
     this.absorberEnAgujeroNegro();
   }
@@ -215,6 +226,7 @@ export class ScrollyContainerComponent implements AfterViewInit, OnDestroy {
     gsap.to(currentPanel, {
       z: -8000, // Se va a la profundidad extrema
       scale: 0, // Se hace minúsculo
+      x: 1500, // Se centra
       rotateZ: 720, // Gira sobre su eje
       autoAlpha: 0,
       filter: "blur(20px)", // Se distorsiona

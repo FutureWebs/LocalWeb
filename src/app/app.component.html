@@ -1,13 +1,16 @@
-<!-- CAPA 1: Fondo 3D interactivo (z-index: -1) -->
+
 <app-background-3d class="fixed top-0 left-0 w-full h-full -z-10"></app-background-3d>
 
-<!-- CAPA 2: UI Flotante (z-index: 50) -->
-<app-header class="fixed top-0 left-0 w-full z-50"></app-header>
-<app-scroll-indicator class="fixed right-4 top-1/2 -translate-y-1/2 z-50"></app-scroll-indicator>
 
-<!-- CAPA 3: El contenido que viaja en el eje Z -->
-<!-- Este contenedor medirá, por ejemplo, 500vh para permitir hacer scroll,
-     pero GSAP lo mantendrá "fijo" en pantalla mientras anima a sus hijos -->
+<app-header class="fixed top-0 left-0 w-full z-50"></app-header>
+
+
+@if (themeService.currentView() === 'projects') {
+  <app-projects-list></app-projects-list>
+} @else {
+  <app-scroll-indicator class="fixed right-4 top-1/2 -translate-y-1/2 z-50"></app-scroll-indicator>
+
+}
 <main class="relative w-full">
   <app-scrolly-container></app-scrolly-container>
 </main>

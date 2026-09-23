@@ -3,44 +3,43 @@
   <div class="scene-3d">
 
     <!-- 1. Inicio -->
-    <section class="panel" id="home">
+    <section class="panel align-left" id="home">
       <div class="content float-0">
         <h1 class="living-title">{{ 'SCROLLY.HOME.TITLE' | translate }}</h1>
         <p class="subtitle">{{ 'SCROLLY.HOME.SUBTITLE' | translate }}</p>
-        <button class="btn-start">{{ 'SCROLLY.HOME.BTN_START' | translate }}</button>
       </div>
     </section>
 
     <!-- 2. Sobre Nosotros -->
-    <section class="panel" id="about">
+    <section class="panel align-left" id="about">
       <div class="content float-1">
-        <h2>{{ 'SCROLLY.ABOUT.TITLE' | translate }}</h2>
-        <p>{{ 'SCROLLY.ABOUT.TEXT' | translate }}</p>
+        <h2 class="living-title">{{ 'SCROLLY.ABOUT.TITLE' | translate }}</h2>
+        <p class="subtitle" >{{ 'SCROLLY.ABOUT.TEXT' | translate }}</p>
       </div>
     </section>
 
     <!-- 3. Visión -->
-    <section class="panel" id="vision">
+    <section class="panel align-left" id="vision">
       <div class="content float-2">
-        <h2>{{ 'SCROLLY.VISION.TITLE' | translate }}</h2>
-        <p>{{ 'SCROLLY.VISION.TEXT' | translate }}</p>
+        <h2 class="living-title">{{ 'SCROLLY.VISION.TITLE' | translate }}</h2>
+        <p class="subtitle">{{ 'SCROLLY.VISION.TEXT' | translate }}</p>
       </div>
     </section>
 
     <!-- 4. Proyectos -->
-    <section class="panel" id="projects">
+    <section class="panel align-left" id="projects">
       <div class="content float-3">
-        <h2>{{ 'SCROLLY.PROJECTS.TITLE' | translate }}</h2>
-        <p>{{ 'SCROLLY.PROJECTS.TEXT' | translate }}</p>
+        <h2 class="living-title">{{ 'SCROLLY.PROJECTS.TITLE' | translate }}</h2>
+        <p class="subtitle">{{ 'SCROLLY.PROJECTS.TEXT' | translate }}</p>
         <button class="btn-action" (click)="abrirProyectos()">{{ 'SCROLLY.PROJECTS.BTN_VIEW' | translate }}</button>
       </div>
     </section>
 
     <!-- 5. Contacto (Más inestable) -->
-    <section class="panel" id="contact">
+    <section class="panel align-left" id="contact">
       <div class="content float-4">
-        <h2>{{ 'SCROLLY.CONTACT.TITLE' | translate }}</h2>
-        <p>{{ 'SCROLLY.CONTACT.TEXT' | translate }}</p>
+        <h2 class="living-title">{{ 'SCROLLY.CONTACT.TITLE' | translate }}</h2>
+        <p class="subtitle">{{ 'SCROLLY.CONTACT.TEXT' | translate }}</p>
 
         <form class="contact-form" (submit)="enviarFormulario($event)">
           <input type="text" [placeholder]="'SCROLLY.CONTACT.PLACEHOLDER_NAME' | translate" required>

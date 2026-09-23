@@ -83,12 +83,22 @@ export class Background3dComponent implements AfterViewInit, OnDestroy {
 
         this.currentScale = 1 + (progress * 0.5);
 
+        // NUEVO: Cálculo de desplazamiento a la derecha para móviles
+        let shiftRight = 0;
+        if (window.innerWidth <= 768) {
+          // A medida que bajas de sección (progress de 0 a 1),
+          // el video se empuja hasta un 40% de su tamaño hacia la derecha.
+          shiftRight = progress * 40;
+        }
+
         if (this.themeService.gravityState() === 'absorbing') {
           this.currentScale = 15;
+          shiftRight = 0; // Lo volvemos a centrar violentamente para que te trague el centro
         }
 
         gsap.to(this.videoContainer.nativeElement, {
           scale: this.currentScale,
+          xPercent: shiftRight, // Desplazamiento lateral independiente del parallax (X)
           duration: 1.5,
           ease: 'power2.inOut',
           overwrite: 'auto'

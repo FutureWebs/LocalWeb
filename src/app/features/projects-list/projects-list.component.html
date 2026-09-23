@@ -1,0 +1,47 @@
+<div class="projects-wrapper" #wrapper>
+
+  <button class="btn-back" (click)="volver()">{{ 'PROJECTS_LIST.BTN_BACK' | translate }}</button>
+
+  <div class="projects-container">
+    <!-- Aplicamos el estilo de título vivo -->
+    <h2 class="page-title living-title">{{ 'PROJECTS_LIST.MAIN_TITLE' | translate }}</h2>
+
+    <!-- Proyecto 1 (Imagen Izquierda, Texto Derecha) -->
+    <div class="project-row">
+      <div class="project-img">
+        <div class="img-placeholder bg-1"></div>
+      </div>
+      <div class="project-info">
+        <h3>{{ 'PROJECTS_LIST.PROJ_1.TITLE' | translate }}</h3>
+        <!-- Aplicamos tu clase subtitle con el nuevo shadow protector -->
+        <p class="subtitle">{{ 'PROJECTS_LIST.PROJ_1.DESC' | translate }}</p>
+        <button class="btn-link">{{ 'PROJECTS_LIST.BTN_EXPLORE' | translate }} ↗</button>
+      </div>
+    </div>
+
+    <!-- Proyecto 2 (Texto Izquierda, Imagen Derecha) -->
+    <div class="project-row reverse">
+      <div class="project-img">
+        <div class="img-placeholder bg-2"></div>
+      </div>
+      <div class="project-info">
+        <h3>{{ 'PROJECTS_LIST.PROJ_2.TITLE' | translate }}</h3>
+        <p class="subtitle">{{ 'PROJECTS_LIST.PROJ_2.DESC' | translate }}</p>
+        <button class="btn-link">{{ 'PROJECTS_LIST.BTN_EXPLORE' | translate }} ↗</button>
+      </div>
+    </div>
+
+    <!-- Proyecto 3 (Imagen Izquierda, Texto Derecha) -->
+    <div class="project-row">
+      <div class="project-img">
+        <div class="img-placeholder bg-3"></div>
+      </div>
+      <div class="project-info">
+        <h3>{{ 'PROJECTS_LIST.PROJ_3.TITLE' | translate }}</h3>
+        <p class="subtitle">{{ 'PROJECTS_LIST.PROJ_3.DESC' | translate }}</p>
+        <button class="btn-link">{{ 'PROJECTS_LIST.BTN_EXPLORE' | translate }} ↗</button>
+      </div>
+    </div>
+
+  </div>
+</div>

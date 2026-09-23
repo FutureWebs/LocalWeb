@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { HeaderComponent } from './shared/header/header.component';
 import { Background3dComponent } from './features/background-3d/background-3d.component';
 import { ScrollyContainerComponent } from './features/scrolly-container/scrolly-container.component';
 import { ScrollIndicatorComponent } from './shared/scroll-indicator/scroll-indicator.component';
+import {ProjectsListComponent} from './features/projects-list/projects-list.component';
+import {ThemeService} from './core/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +13,13 @@ import { ScrollIndicatorComponent } from './shared/scroll-indicator/scroll-indic
     HeaderComponent,
     Background3dComponent,
     ScrollyContainerComponent,
-    ScrollIndicatorComponent
+    ScrollIndicatorComponent,
+    ProjectsListComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  // Toda la lógica de inicialización 3D y captura de gestos
-  // ahora vive en sus respectivos componentes (Background3d y ScrollyContainer).
-  // ¡Este archivo queda 100% limpio!
+  public themeService = inject(ThemeService);
+
 }

@@ -41,3 +41,14 @@ video {
   background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.95) 100%);
   pointer-events: none; /* Permite hacer clic "a través" de esta capa */
 }
+
+
+
+@media (max-width: 768px) {
+  video {
+    width: 100%;
+    object-fit: cover;
+    left: -250px;
+
+  }
+}

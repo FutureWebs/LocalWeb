@@ -7,34 +7,52 @@
     "HOME": "Inicio",
     "ABOUT": "Sobre nosotros",
     "VISION": "Nuestra visión",
-    "PROJECTS": "Proyectos"
+    "PROJECTS": "Proyectos",
+    "CONTACT": "Contacto"
   },
   "SCROLLY": {
     "HOME": {
-      "TITLE": "Future Webs",
-      "SUBTITLE": "Traspasa el horizonte de sucesos digitales.",
+      "TITLE": "FutureWebs",
+      "SUBTITLE": "Traspasa el horizonte de sucesos.",
       "BTN_START": "Iniciar Viaje"
     },
     "ABOUT": {
       "TITLE": "Sobre nosotros",
-      "TEXT": "No hacemos simples páginas. Construimos ecosistemas digitales. Combinamos arquitecturas full-stack robustas con interfaces dinámicas para crear plataformas que rinden al máximo nivel."
+      "TEXT": "Arquitecturas robustas y experiencias inmersivas."
     },
     "VISION": {
       "TITLE": "Nuestra Visión",
-      "TEXT": "Llevar la ingeniería de software al límite. Romper la monotonía visual mediante código modular y experiencias inmersivas que absorben por completo la atención de tus usuarios."
+      "TEXT": "Llevar la ingeniería al límite. Romper la monotonía visual."
     },
     "PROJECTS": {
       "TITLE": "Proyectos",
-      "TEXT": "Sistemas complejos, soluciones elegantes. Explora las singularidades que hemos programado.",
+      "TEXT": "Sistemas complejos, soluciones elegantes.",
       "BTN_VIEW": "Ver Proyectos"
     },
     "CONTACT": {
       "TITLE": "Contacto",
-      "TEXT": "La singularidad te espera. Inicia tu proyecto hoy.",
-      "PLACEHOLDER_NAME": "Tu Nombre",
-      "PLACEHOLDER_EMAIL": "Tu Correo",
-      "PLACEHOLDER_MESSAGE": "¿Qué vamos a construir?",
-      "BTN_SUBMIT": "Enviar Datos"
+      "TEXT": "La singularidad te espera.",
+      "PLACEHOLDER_NAME": "Nombre",
+      "PLACEHOLDER_EMAIL": "Correo",
+      "PLACEHOLDER_MESSAGE": "Tu idea...",
+      "BTN_SUBMIT": "Enviar"
+    }
+  },
+  "PROJECTS_LIST": {
+    "BTN_BACK": "Volver",
+    "MAIN_TITLE": "Nuestras Experiencias",
+    "BTN_EXPLORE": "Explorar Código",
+    "PROJ_1": {
+      "TITLE": "Plataforma Educativa Modular",
+      "DESC": "Arquitectura Full-Stack en Angular y Spring Boot. Gestión de bloques de contenido interactivos y validación social."
+    },
+    "PROJ_2": {
+      "TITLE": "Generador de Video Automatizado",
+      "DESC": "Pipeline diseñado para canales de YouTube. Parseo de scripts, síntesis de voz automatizada y animación cutout 2D."
+    },
+    "PROJ_3": {
+      "TITLE": "Transpilador C++ Competitivo",
+      "DESC": "Diseño conceptual de un lenguaje transpilar específico para optimización extrema en entornos de alta competencia."
     }
   }
 }

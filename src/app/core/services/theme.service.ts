@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 export type Language = 'en' | 'es';
 export type GravityState = 'normal' | 'unstable' | 'absorbing' | 'void';
+export type AppView = 'main' | 'projects'; //
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
@@ -12,7 +13,7 @@ export class ThemeService {
   // Usamos Signals en lugar de BehaviorSubject (estándar de Angular 18+)
   public currentLanguage = signal<Language>('es');
   public gravityState = signal<GravityState>('normal');
-
+  public currentView = signal<AppView>('main');
   constructor() {
     this.translate.addLangs(['es', 'en']);
     this.initializeLanguage();

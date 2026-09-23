@@ -20,7 +20,8 @@ export class ScrollIndicatorComponent {
     { id: 'home', labelKey: 'NAV.HOME' },
     { id: 'about', labelKey: 'NAV.ABOUT' },
     { id: 'vision', labelKey: 'NAV.VISION' },
-    { id: 'projects', labelKey: 'NAV.PROJECTS' }
+    { id: 'projects', labelKey: 'NAV.PROJECTS' },
+    { id: 'contact', labelKey: 'NAV.CONTACT' }
   ];
 
   goTo(index: number) {

@@ -7,34 +7,53 @@
     "HOME": "Home",
     "ABOUT": "About Us",
     "VISION": "Our Vision",
-    "PROJECTS": "Projects"
+    "PROJECTS": "Projects",
+    "CONTACT": "Contact"
   },
   "SCROLLY": {
     "HOME": {
-      "TITLE": "Future Webs",
-      "SUBTITLE": "Cross the digital event horizon.",
+      "TITLE": "FutureWebs",
+      "SUBTITLE": "Cross the event horizon.",
       "BTN_START": "Start Journey"
     },
     "ABOUT": {
       "TITLE": "About Us",
-      "TEXT": "We don't just make pages. We build digital ecosystems. We combine robust full-stack architectures with dynamic interfaces to create platforms that perform at the highest level."
+      "TEXT": "Robust architectures and immersive experiences."
     },
     "VISION": {
       "TITLE": "Our Vision",
-      "TEXT": "Pushing software engineering to the limit. Breaking visual monotony through modular code and immersive experiences that fully absorb your users' attention."
+      "TEXT": "Pushing engineering to the limit. Breaking visual monotony."
     },
     "PROJECTS": {
       "TITLE": "Projects",
-      "TEXT": "Complex systems, elegant solutions. Explore the singularities we have programmed.",
+      "TEXT": "Complex systems, elegant solutions.",
       "BTN_VIEW": "View Projects"
     },
     "CONTACT": {
       "TITLE": "Contact",
-      "TEXT": "The singularity awaits. Start your project today.",
-      "PLACEHOLDER_NAME": "Your Name",
-      "PLACEHOLDER_EMAIL": "Your Email",
-      "PLACEHOLDER_MESSAGE": "What are we building?",
-      "BTN_SUBMIT": "Send Data"
+      "TEXT": "The singularity awaits.",
+      "PLACEHOLDER_NAME": "Name",
+      "PLACEHOLDER_EMAIL": "Email",
+      "PLACEHOLDER_MESSAGE": "Your idea...",
+      "BTN_SUBMIT": "Send"
+    }
+  },
+  "PROJECTS_LIST": {
+    "BTN_BACK": "Return",
+    "MAIN_TITLE": "Our Experiences",
+    "BTN_EXPLORE": "Explore Code",
+    "PROJ_1": {
+      "TITLE": "Modular Educational Platform",
+      "DESC": "Full-Stack architecture in Angular and Spring Boot. Interactive content blocks management and social validation."
+    },
+    "PROJ_2": {
+      "TITLE": "Automated Video Generator",
+      "DESC": "Pipeline designed for YouTube channels. Script parsing, automated voice synthesis, and 2D cutout animation."
+    },
+    "PROJ_3": {
+      "TITLE": "Competitive C++ Transpiler",
+      "DESC": "Conceptual design of a specific transpiler language for extreme optimization in highly competitive environments."
     }
   }
+
 }
