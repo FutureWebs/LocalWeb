@@ -1,0 +1,42 @@
+name: Deploy Angular to GitHub Pages
+
+on:
+  push:
+    branches:
+      - first-experimental-desing
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gh-pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Angular app
+        run: npm run build -- --configuration production --base-href "/LocalWeb/"
+
+      - name: Add 404 fallback
+        run: cp index.html 404.html
+        working-directory: dist/future-webs/browser
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: dist/future-webs/browser
