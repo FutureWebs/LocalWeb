@@ -1,0 +1,14 @@
+<div class="star-field" #layer>
+  @for (star of stars(); track star.id) {
+    <i
+      class="star-field__star"
+      [class.is-glow]="star.glow"
+      [style.left.%]="star.x"
+      [style.top.%]="star.y"
+      [style.width.px]="star.size"
+      [style.height.px]="star.size"
+      [style.--o]="star.opacity"
+    ></i>
+  }
+  <i class="star-field__shooter" #shooter></i>
+</div>

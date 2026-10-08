@@ -1,0 +1,62 @@
+<header
+  class="navbar"
+  [class.is-open]="menuOpen()"
+  (mouseenter)="openMenu()"
+  (mouseleave)="closeMenu()"
+  (focusin)="openMenu()"
+  (focusout)="onFocusOut($event)"
+>
+  <div class="navbar__inner">
+    <div class="navbar__left">
+      <app-back-button
+        class="navbar__back"
+        [route]="backRoute()"
+        [label]="backLabel()"
+        (click)="closeMenu()"
+      />
+
+      <a class="navbar__brand" routerLink="/" (click)="closeMenu()" aria-label="FutureWebs">
+        <app-logo />
+      </a>
+    </div>
+
+    <div class="navbar__actions">
+      <button
+        class="navbar__lang"
+        type="button"
+        (click)="translator.toggleLang()"
+        [attr.aria-label]="'Cambiar idioma'"
+      >
+        {{ translator.pick(langSwitch) }}
+      </button>
+
+      <button
+        class="navbar__burger"
+        type="button"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        aria-label="Menú"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="navbar__drawer" #drawer [class.is-open]="menuOpen()">
+    @for (item of navItems; track item.id) {
+      <a
+        class="navbar__drawer-link"
+        [routerLink]="item.route"
+        routerLinkActive="is-active"
+        (click)="closeMenu()"
+      >
+        {{ translator.pick(item.label) }}
+      </a>
+    }
+    <button class="navbar__drawer-lang" type="button" (click)="translator.toggleLang()">
+      {{ translator.pick(langSwitch) }}
+    </button>
+  </div>
+</header>

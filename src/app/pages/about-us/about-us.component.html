@@ -1,0 +1,41 @@
+<section class="page" #root>
+  <div class="page__container">
+    <app-page-header
+      [kicker]="content().kicker"
+      [title]="content().title"
+      [subtitle]="content().intro"
+    />
+
+    <div class="page__grid page__grid--2">
+      <app-card
+        variant="value"
+        icon="M"
+        [title]="content().mission.title"
+        [text]="content().mission.text"
+        data-reveal
+      />
+      <app-card
+        variant="value"
+        icon="V"
+        [title]="content().vision.title"
+        [text]="content().vision.text"
+        data-reveal
+        [attr.data-reveal-delay]="120"
+      />
+    </div>
+
+    <app-section-title [title]="content().valuesTitle" [subtitle]="content().valuesIntro" />
+
+    <div class="page__grid">
+      @for (value of content().values; track value.id; let i = $index) {
+        <app-card
+          variant="value"
+          [title]="value.title"
+          [text]="value.text"
+          data-reveal
+          [attr.data-reveal-delay]="i * 90"
+        />
+      }
+    </div>
+  </div>
+</section>

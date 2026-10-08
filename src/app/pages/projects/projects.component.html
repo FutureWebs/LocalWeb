@@ -1,0 +1,25 @@
+<section class="page" #root>
+  <div class="page__container">
+    <app-page-header
+      [kicker]="content().kicker"
+      [title]="content().title"
+      [subtitle]="content().intro"
+    />
+
+    <div class="page__grid">
+      @for (project of content().items; track project.id; let i = $index) {
+        <app-card
+          variant="project"
+          [title]="project.title"
+          [text]="project.description"
+          [tags]="project.tags"
+          [media]="project.gradient"
+          [actionLabel]="translator.pick(ui.explore)"
+          [href]="project.link"
+          data-reveal
+          [attr.data-reveal-delay]="i * 110"
+        />
+      }
+    </div>
+  </div>
+</section>

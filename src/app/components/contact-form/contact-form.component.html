@@ -1,0 +1,62 @@
+<form class="contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <div class="field" [class.is-invalid]="showError('name')" data-reveal>
+    <label class="field__label" for="cf-name">{{ translator.pick(ui.name) }}</label>
+    <input
+      id="cf-name"
+      class="field__control"
+      type="text"
+      formControlName="name"
+      [placeholder]="translator.pick(ui.namePlaceholder)"
+      autocomplete="name"
+    />
+    @if (errorFor('name'); as error) {
+      <span class="field__error">{{ error }}</span>
+    }
+  </div>
+
+  <div class="field" [class.is-invalid]="showError('email')" data-reveal [attr.data-reveal-delay]="90">
+    <label class="field__label" for="cf-email">{{ translator.pick(ui.email) }}</label>
+    <input
+      id="cf-email"
+      class="field__control"
+      type="email"
+      formControlName="email"
+      [placeholder]="translator.pick(ui.emailPlaceholder)"
+      autocomplete="email"
+    />
+    @if (errorFor('email'); as error) {
+      <span class="field__error">{{ error }}</span>
+    }
+  </div>
+
+  <div class="field" [class.is-invalid]="showError('message')" data-reveal [attr.data-reveal-delay]="180">
+    <label class="field__label" for="cf-message">{{ translator.pick(ui.message) }}</label>
+    <textarea
+      id="cf-message"
+      class="field__control"
+      rows="5"
+      formControlName="message"
+      [placeholder]="translator.pick(ui.messagePlaceholder)"
+    ></textarea>
+    @if (errorFor('message'); as error) {
+      <span class="field__error">{{ error }}</span>
+    }
+  </div>
+
+  <app-button
+    class="contact-form__submit"
+    type="submit"
+    [label]="status() === 'sending' ? translator.pick(ui.sending) : translator.pick(ui.submit)"
+    [disabled]="status() === 'sending'"
+    data-reveal
+    [attr.data-reveal-delay]="260"
+  />
+
+  <div class="form-status" #statusBox [ngClass]="'form-status--' + status()">
+    @if (status() === 'success') {
+      <span>{{ translator.pick(ui.success) }}</span>
+    } @else if (status() === 'error') {
+      <span>{{ translator.pick(ui.error) }}</span>
+    }
+  </div>
+</form>

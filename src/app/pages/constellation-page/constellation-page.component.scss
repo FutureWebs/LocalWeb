@@ -1,0 +1,56 @@
+@use '../../../styles/variables.css';
+
+.map-page {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  /* El navbar es sticky: compensamos para que el centro del lienzo
+     coincida con el centro exacto de la pantalla. */
+  margin-top: calc(-1 * var(--nav-h));
+  padding: var(--sp-6) var(--page-pad-x) var(--sp-8);
+}
+
+.map-page__header {
+  position: absolute;
+  top: calc(var(--nav-h) + var(--sp-4));
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: fit-content;
+  max-width: min(92vw, 46rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  text-align: center;
+  z-index: 2;
+}
+
+.map-page__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.1;
+  letter-spacing: var(--ls-tight);
+  color: var(--c-white);
+}
+
+.map-page__subtitle {
+  color: var(--c-grey);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+/* Móvil: el subtítulo se ocupa para que las estrellas no choquen con el título */
+@media (max-width: 768px) {
+  .map-page__header {
+    top: calc(var(--nav-h) + 6.5rem);
+    gap: var(--sp-2);
+  }
+
+  .map-page__subtitle {
+    display: none;
+  }
+}

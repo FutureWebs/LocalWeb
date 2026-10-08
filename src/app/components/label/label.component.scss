@@ -1,0 +1,26 @@
+@use '../../../styles/variables.css';
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--r-pill);
+  border: var(--border-hairline);
+  background: var(--surface-glass);
+  backdrop-filter: var(--backdrop-blur);
+  color: var(--c-cyan-soft);
+  font-family: var(--font-display);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+.label__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--g-nebula);
+  box-shadow: 0 0 8px rgba(0, 224, 255, 0.8);
+}

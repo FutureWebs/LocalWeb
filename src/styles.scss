@@ -1,95 +1,138 @@
+/* FutureWebs · Estilos globales (tokens en src/styles/variables.css) */
 
-/* Reset básico */
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden; /* ESTO ES CLAVE: Mata el scroll nativo */
-  background-color: transparent;
-  color: #ffffff;
-  font-family: sans-serif;
-  touch-action: none; /* Evita que el móvil intente hacer scroll nativo y quite el error de consola */
+html {
+  scroll-behavior: smooth;
 }
 
-/* Configuraciones recomendadas por Lenis para Smooth Scroll */
-html.lenis, html.lenis body {
-  height: auto;
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--c-void);
+  color: var(--c-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+
+body {
+  overflow-x: hidden;
 }
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-.lenis.lenis-smooth iframe {
+
+/* Sombra de nebulosa persistente detrás de todo el contenido */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(60vw 60vh at 15% 10%, rgba(124, 92, 255, 0.14), transparent 60%),
+    radial-gradient(50vw 50vh at 85% 80%, rgba(0, 224, 255, 0.1), transparent 60%),
+    radial-gradient(70vw 70vh at 50% 120%, rgba(255, 92, 200, 0.08), transparent 60%);
   pointer-events: none;
+  z-index: 0;
 }
 
-/* Agrega esto a tu src/styles.scss */
-
-.living-title {
-  font-size: 5rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-  color: #ffffff;
-  margin-bottom: 1rem;
-  animation: breathe 5s infinite ease-in-out;
+::selection {
+  background: rgba(124, 92, 255, 0.55);
+  color: var(--c-white);
 }
 
-/* La magia para que se lea sobre fondos brillantes */
-.subtitle {
-  font-size: 1.5rem !important;
-  color: #c0c0c0 !important; /* Un gris un poco más claro ayuda */
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  font-weight: 500;
-
-  /* Múltiples sombras: una corta y nítida, y otras amplias y difuminadas
-     para crear un halo oscuro protector alrededor de las letras */
-  text-shadow:
-    0px 2px 4px rgba(0, 0, 0, 0.9),
-    0px 4px 10px rgba(0, 0, 0, 0.8),
-    0px 0px 20px rgba(0, 0, 0, 0.8),
-    0px 0px 40px rgba(0, 0, 0, 0.7);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-@keyframes breathe {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.9;
-    text-shadow:
-      0 2px 10px rgba(0, 0, 0, 0.8),
-      0 0 15px rgba(255, 255, 255, 0.1);
-  }
-  50% {
-    transform: translateY(-8px) scale(1.02);
-    opacity: 1;
-    text-shadow:
-      0 4px 15px rgba(0, 0, 0, 0.9),
-      0 0 20px rgba(255, 255, 255, 0.4),
-      0 0 40px rgba(255, 255, 255, 0.2);
-  }
+button {
+  font-family: inherit;
 }
 
-/* Agrega esto al final de src/styles.scss */
-@media (max-width: 768px) {
-  .living-title {
-    font-size: 3.2rem;
-    letter-spacing: 1px;
-    margin-bottom: 0.5rem;
-  }
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
 
-  .subtitle {
-    font-size: 1rem !important;
-    letter-spacing: 2px;
-    line-height: 1.4;
-  }
+:focus-visible {
+  outline: 2px solid var(--c-cyan);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* Scrollbar cósmica */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--c-void);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--c-violet), var(--c-cyan));
+  border-radius: var(--r-pill);
+  border: 2px solid var(--c-void);
+}
+
+/* --- Utilidades globales --- */
+
+/* Estructura común de las páginas de contenido */
+.page {
+  position: relative;
+  min-height: calc(100svh - var(--nav-h));
+  padding: var(--sp-5) var(--page-pad-x) var(--sp-6);
+}
+
+.page__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  max-width: var(--page-max);
+  margin-inline: auto;
+}
+
+.page__grid {
+  display: grid;
+  gap: var(--sp-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+}
+
+.page__grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+}
+
+.gradient-text {
+  background: var(--g-nebula-warm);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: var(--surface-glass);
+  backdrop-filter: var(--backdrop-blur);
+  border: var(--border-hairline);
+}
+
+/* Estado inicial de los elementos que Anime.js revela en scroll/entrada */
+[data-reveal],
+[data-in] {
+  opacity: 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }

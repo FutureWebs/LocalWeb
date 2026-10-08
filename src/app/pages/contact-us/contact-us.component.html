@@ -1,0 +1,23 @@
+<section class="page" #root>
+  <div class="page__container">
+    <app-page-header
+      [kicker]="content().kicker"
+      [title]="content().title"
+      [subtitle]="content().intro"
+    />
+
+    <div class="contact-grid">
+      <aside class="contact-info" data-reveal>
+        <a class="contact-info__email" [href]="'mailto:' + content().info.email">
+          {{ content().info.email }}
+        </a>
+        <p class="contact-info__note">{{ content().info.response }}</p>
+        <p class="contact-info__note contact-info__note--muted">{{ content().info.location }}</p>
+      </aside>
+
+      <div class="contact-form-card" data-reveal [attr.data-reveal-delay]="120">
+        <app-contact-form />
+      </div>
+    </div>
+  </div>
+</section>

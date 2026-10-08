@@ -33,6 +33,7 @@
               }
             ],
             "styles": [
+              "src/styles/variables.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -42,13 +43,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "600kB",
+                  "maximumError": "1.2MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "16kB",
+                  "maximumError": "32kB"
                 }
               ],
               "outputHashing": "all"
@@ -92,6 +93,7 @@
               }
             ],
             "styles": [
+              "src/styles/variables.css",
               "src/styles.scss"
             ],
             "scripts": []

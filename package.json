@@ -20,6 +20,7 @@
     "@emailjs/browser": "^4.4.1",
     "@ngx-translate/core": "^17.0.0",
     "@ngx-translate/http-loader": "^17.0.0",
+    "animejs": "^4.5.0",
     "emailjs-com": "^3.2.0",
     "gsap": "^3.15.0",
     "rxjs": "~7.8.0",
@@ -39,6 +40,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "puppeteer-core": "^25.13.0",
     "typescript": "~5.7.2"
   }
 }

@@ -1,0 +1,40 @@
+<article class="card" [ngClass]="'card--' + variant">
+  @if (media) {
+    <div class="card__media" [style.backgroundImage]="'linear-gradient(135deg, rgba(4,5,13,.25), rgba(4,5,13,.75)), ' + media"></div>
+  }
+
+  @if (icon) {
+    <span class="card__icon">{{ icon }}</span>
+  }
+
+  <h3 class="card__title">{{ title }}</h3>
+  <p class="card__text">{{ text }}</p>
+
+  @if (bullets && bullets.length) {
+    <ul class="card__list">
+      @for (bullet of bullets; track bullet) {
+        <li>{{ bullet }}</li>
+      }
+    </ul>
+  }
+
+  @if (tags && tags.length) {
+    <ul class="card__tags">
+      @for (tag of tags; track tag) {
+        <li>{{ tag }}</li>
+      }
+    </ul>
+  }
+
+  @if (actionLabel) {
+    @if (href) {
+      <a class="card__action" [href]="href" target="_blank" rel="noopener noreferrer">
+        {{ actionLabel }} <span aria-hidden="true">↗</span>
+      </a>
+    } @else {
+      <button class="card__action" type="button" (click)="action.emit()">
+        {{ actionLabel }} <span aria-hidden="true">→</span>
+      </button>
+    }
+  }
+</article>

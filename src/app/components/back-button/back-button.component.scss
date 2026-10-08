@@ -1,0 +1,46 @@
+@use '../../../styles/variables.css';
+
+:host {
+  display: inline-flex;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border-radius: 50%;
+  border: var(--border-hairline);
+  background: var(--surface-glass);
+  backdrop-filter: var(--backdrop-blur);
+  color: var(--c-grey);
+  cursor: pointer;
+  transition:
+    color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease;
+}
+
+.back:hover {
+  color: var(--c-white);
+  border-color: var(--c-violet);
+  box-shadow: var(--glow-violet);
+}
+
+.back__arrow {
+  display: grid;
+  place-items: center;
+  will-change: transform;
+
+  svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

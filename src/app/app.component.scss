@@ -1,0 +1,12 @@
+@use '../styles/variables.css';
+
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.shell {
+  position: relative;
+  z-index: var(--z-content);
+  min-height: calc(100svh - var(--nav-h));
+}

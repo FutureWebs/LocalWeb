@@ -1,0 +1,18 @@
+<div
+  class="warp"
+  [class.is-active]="state().active"
+  [attr.data-direction]="state().direction"
+  aria-hidden="true"
+>
+  <div class="warp__portal" #portal></div>
+
+  <div class="warp__streaks" #streaksHost>
+    @for (angle of angles; track angle) {
+      <span class="warp__streak" [style.transform]="'rotate(' + angle + 'deg)'">
+        <i class="warp__beam"></i>
+      </span>
+    }
+  </div>
+
+  <div class="warp__flash" #flash></div>
+</div>

@@ -1,0 +1,23 @@
+<section class="landing" #root>
+  <button class="landing__lang" type="button" (click)="translator.toggleLang()" data-in>
+    {{ translator.pick(ui.langToEn) }}
+  </button>
+
+  <div class="landing__content">
+    <h1 class="landing__brand" data-in #brand>
+      <app-logo class="is-large" />
+    </h1>
+
+    <app-label [text]="content().kicker" data-in />
+
+    <p class="landing__subtitle gradient-text" data-in>{{ content().subtitle }}</p>
+
+    <p class="landing__description" data-in>{{ content().description }}</p>
+
+    <div class="landing__cta" data-in>
+      <app-button [label]="content().cta" (click)="startJourney()" />
+    </div>
+
+    <p class="landing__hint" data-in>{{ content().hint }}</p>
+  </div>
+</section>

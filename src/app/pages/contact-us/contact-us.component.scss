@@ -1,0 +1,57 @@
+@use '../../../styles/variables.css';
+
+.contact-grid {
+  display: grid;
+  gap: var(--sp-6);
+  grid-template-columns: 1fr;
+
+  @media (min-width: 900px) {
+    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.4fr);
+  }
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: var(--sp-5) var(--sp-6);
+  border-radius: var(--r-lg);
+  border: var(--border-hairline);
+  background: var(--surface-glass);
+  backdrop-filter: var(--backdrop-blur);
+}
+
+.contact-info__email {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: var(--fw-medium);
+  background: var(--g-nebula);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  overflow-wrap: anywhere;
+  transition: filter var(--dur-med) ease;
+
+  &:hover {
+    filter: drop-shadow(0 0 14px rgba(0, 224, 255, 0.6));
+  }
+}
+
+.contact-info__note {
+  color: var(--c-grey);
+  font-size: var(--fs-small);
+  line-height: 1.55;
+}
+
+.contact-info__note--muted {
+  color: var(--c-grey-dim);
+}
+
+.contact-form-card {
+  padding: var(--sp-6);
+  border-radius: var(--r-lg);
+  border: var(--border-hairline);
+  background: var(--surface-glass);
+  backdrop-filter: var(--backdrop-blur);
+}

@@ -1,0 +1,9 @@
+<header class="section-title" [class.is-center]="align === 'center'">
+  @if (kicker) {
+    <app-label [text]="kicker" data-reveal />
+  }
+  <h2 class="section-title__title" data-reveal [attr.data-reveal-delay]="90">{{ title }}</h2>
+  @if (subtitle) {
+    <p class="section-title__subtitle" data-reveal [attr.data-reveal-delay]="180">{{ subtitle }}</p>
+  }
+</header>

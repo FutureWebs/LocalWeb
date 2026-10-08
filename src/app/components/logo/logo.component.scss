@@ -1,0 +1,40 @@
+@use '../../../styles/variables.css';
+
+:host {
+  display: inline-flex;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.logo__mark {
+  width: 1.75rem;
+  height: 1.75rem;
+  filter: drop-shadow(0 0 8px rgba(0, 224, 255, 0.55));
+}
+
+.logo__text {
+  font-family: var(--font-display);
+  font-weight: var(--fw-medium);
+  font-size: 1.05rem;
+  letter-spacing: var(--ls-mid);
+  text-transform: uppercase;
+  background: var(--g-nebula);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+:host(.is-large) .logo__mark {
+  width: clamp(4rem, 12vw, 7rem);
+  height: clamp(4rem, 12vw, 7rem);
+}
+
+:host(.is-large) .logo__text {
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.2em;
+}

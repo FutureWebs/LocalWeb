@@ -1,0 +1,34 @@
+@use '../../../styles/variables.css';
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding-top: var(--sp-3);
+}
+
+.page-header__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  max-width: 56rem;
+}
+
+.page-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  font-weight: var(--fw-bold);
+  line-height: 1.05;
+  letter-spacing: var(--ls-tight);
+  background: var(--g-nebula-warm);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-header__subtitle {
+  font-size: var(--fs-body);
+  color: var(--c-grey);
+  line-height: 1.6;
+  max-width: 46rem;
+}

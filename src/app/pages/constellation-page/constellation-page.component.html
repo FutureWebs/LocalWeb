@@ -1,0 +1,13 @@
+<section class="map-page" #root>
+  <header class="map-page__header">
+    <app-label [text]="content().kicker" data-reveal />
+    <h1 class="map-page__title" data-reveal [attr.data-reveal-delay]="90">
+      {{ content().title }}
+    </h1>
+    <p class="map-page__subtitle" data-reveal [attr.data-reveal-delay]="180">
+      {{ content().subtitle }}
+    </p>
+  </header>
+
+  <app-constellation />
+</section>

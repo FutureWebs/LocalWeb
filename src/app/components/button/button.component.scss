@@ -1,0 +1,91 @@
+@use '../../../styles/variables.css';
+
+:host {
+  display: inline-block;
+}
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-3);
+  padding: 0.85rem 2.1rem;
+  border-radius: var(--r-pill);
+  border: 1px solid transparent;
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-mid);
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    background-color var(--dur-med) ease,
+    border-color var(--dur-med) ease,
+    color var(--dur-med) ease,
+    box-shadow var(--dur-med) ease;
+  will-change: transform;
+}
+
+.btn__label {
+  position: relative;
+  z-index: 1;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--g-nebula);
+  opacity: 0;
+  transition: opacity var(--dur-med) ease;
+}
+
+/* --- Variantes --- */
+.btn--primary {
+  background: var(--g-nebula);
+  color: var(--c-void);
+  box-shadow: var(--glow-violet);
+
+  &::after {
+    background: var(--g-nebula-warm);
+  }
+
+  &:hover {
+    box-shadow:
+      var(--glow-violet),
+      var(--glow-cyan);
+  }
+}
+
+.btn--outline {
+  background: var(--surface-glass);
+  color: var(--c-white);
+  border-color: rgba(169, 178, 214, 0.4);
+  backdrop-filter: var(--backdrop-blur);
+
+  &:hover {
+    border-color: var(--c-cyan);
+    box-shadow: var(--glow-cyan);
+  }
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--c-grey);
+  padding-inline: var(--sp-4);
+
+  &:hover {
+    color: var(--c-white);
+  }
+}
+
+.btn:hover::after {
+  opacity: 0.18;
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}

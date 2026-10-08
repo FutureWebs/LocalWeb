@@ -1,0 +1,110 @@
+/* ============================================================
+   FutureWebs · Design Tokens (Cosmic Theme)
+   Única fuente de verdad de estilos. Registrado en angular.json
+   dentro de "styles", de modo que cada componente lo consume.
+   ============================================================ */
+
+:root {
+  /* --- Paleta: espacio profundo --- */
+  --c-void: #04050d;
+  --c-space: #070a17;
+  --c-space-2: #0c1026;
+  --c-space-3: #141a3a;
+
+  /* --- Acentos: nebulosa --- */
+  --c-violet: #7c5cff;
+  --c-violet-soft: #a58bff;
+  --c-cyan: #00e0ff;
+  --c-cyan-soft: #7df1ff;
+  --c-pink: #ff5cc8;
+  --c-gold: #ffd166;
+
+  /* --- Texto --- */
+  --c-white: #f4f6ff;
+  --c-grey: #a9b2d6;
+  --c-grey-dim: #6b74a0;
+  --c-ink: #05060f;
+
+  /* --- Gradientes --- */
+  --g-nebula: linear-gradient(120deg, var(--c-violet) 0%, var(--c-cyan) 100%);
+  --g-nebula-warm: linear-gradient(120deg, var(--c-pink) 0%, var(--c-violet) 60%, var(--c-cyan) 100%);
+  --g-veil: radial-gradient(ellipse at center, rgba(124, 92, 255, 0.16) 0%, rgba(4, 5, 13, 0) 70%);
+
+  /* --- Tipografía --- */
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+
+  --fs-hero: clamp(3rem, 10vw, 7.5rem);
+  --fs-h1: clamp(2.4rem, 6vw, 4.25rem);
+  --fs-h2: clamp(1.9rem, 4.2vw, 3rem);
+  --fs-h3: clamp(1.35rem, 2.6vw, 1.85rem);
+  --fs-body-lg: clamp(1.05rem, 1.6vw, 1.3rem);
+  --fs-body: clamp(1rem, 1.2vw, 1.125rem);
+  --fs-small: 0.9rem;
+  --fs-label: 0.72rem;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  --ls-wide: 0.32em;
+  --ls-mid: 0.14em;
+  --ls-tight: -0.02em;
+
+  /* --- Espaciado (escala 4px) --- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --sp-10: 8rem;
+
+  /* --- Radios --- */
+  --r-sm: 0.5rem;
+  --r-md: 1rem;
+  --r-lg: 1.5rem;
+  --r-pill: 999px;
+
+  /* --- Bordes y superficies --- */
+  --border-hairline: 1px solid rgba(169, 178, 214, 0.18);
+  --border-glow: 1px solid rgba(0, 224, 255, 0.45);
+  --surface-glass: rgba(12, 16, 38, 0.55);
+  --surface-glass-2: rgba(20, 26, 58, 0.45);
+  --backdrop-blur: blur(14px);
+
+  /* --- Sombras / glows --- */
+  --glow-cyan: 0 0 22px rgba(0, 224, 255, 0.35);
+  --glow-violet: 0 0 26px rgba(124, 92, 255, 0.4);
+  --glow-white: 0 0 30px rgba(244, 246, 255, 0.35);
+  --shadow-card: 0 24px 60px rgba(2, 3, 10, 0.65);
+  --shadow-deep: 0 30px 80px rgba(0, 0, 0, 0.55);
+
+  /* --- Layout --- */
+  --page-max: 1240px;
+  --page-pad-x: clamp(1.25rem, 5vw, 4rem);
+  --nav-h: 4.5rem;
+
+  /* --- Breakpoints (referencia; no se usan en CSS puro) ---
+     --bp-sm: 480px
+     --bp-md: 768px
+     --bp-lg: 1024px
+     --bp-xl: 1440px
+  */
+
+  /* --- Capas --- */
+  --z-bg: -1;
+  --z-content: 1;
+  --z-nav: 100;
+  --z-page: 200;
+  --z-warp: 900;
+
+  /* --- Duraciones (para transiciones CSS menores) --- */
+  --dur-fast: 160ms;
+  --dur-med: 320ms;
+  --dur-slow: 640ms;
+}

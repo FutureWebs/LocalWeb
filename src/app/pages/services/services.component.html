@@ -1,0 +1,23 @@
+<section class="page" #root>
+  <div class="page__container">
+    <app-page-header
+      [kicker]="content().kicker"
+      [title]="content().title"
+      [subtitle]="content().intro"
+    />
+
+    <div class="page__grid">
+      @for (service of content().items; track service.id; let i = $index) {
+        <app-card
+          variant="service"
+          [icon]="service.icon"
+          [title]="service.title"
+          [text]="service.description"
+          [bullets]="service.bullets"
+          data-reveal
+          [attr.data-reveal-delay]="i * 90"
+        />
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+@use '../../../styles/variables.css';
+
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  display: block;
+}
+
+.star-field {
+  position: absolute;
+  inset: -4%;
+  will-change: transform;
+}
+
+.star-field__star {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background: var(--c-white);
+  opacity: var(--o, 0.7);
+  box-shadow: 0 0 6px rgba(244, 246, 255, 0.55);
+  will-change: transform, opacity;
+
+  &.is-glow {
+    box-shadow:
+      0 0 10px rgba(244, 246, 255, 0.8),
+      0 0 22px rgba(0, 224, 255, 0.35);
+  }
+}
+
+.star-field__shooter {
+  position: absolute;
+  top: 12%;
+  left: -15%;
+  width: 180px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.95) 60%, var(--c-cyan-soft) 100%);
+  transform: rotate(24deg);
+  opacity: 0;
+  filter: drop-shadow(0 0 8px rgba(0, 224, 255, 0.6));
+}

@@ -1,0 +1,27 @@
+@if (routerLink) {
+  <a
+    class="btn"
+    [ngClass]="classes"
+    [routerLink]="routerLink"
+    [attr.aria-disabled]="disabled ? 'true' : null"
+  >
+    <span class="btn__label">{{ label }}</span>
+    <ng-content></ng-content>
+  </a>
+} @else if (href) {
+  <a
+    class="btn"
+    [ngClass]="classes"
+    [href]="href"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <span class="btn__label">{{ label }}</span>
+    <ng-content></ng-content>
+  </a>
+} @else {
+  <button class="btn" [ngClass]="classes" [type]="type" [disabled]="disabled">
+    <span class="btn__label">{{ label }}</span>
+    <ng-content></ng-content>
+  </button>
+}

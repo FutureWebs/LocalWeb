@@ -1,0 +1,13 @@
+<header class="page-header">
+  <div class="page-header__body">
+    @if (kicker) {
+      <app-label [text]="kicker" data-reveal />
+    }
+    <h1 class="page-header__title" data-reveal [attr.data-reveal-delay]="90">{{ title }}</h1>
+    @if (subtitle) {
+      <p class="page-header__subtitle" data-reveal [attr.data-reveal-delay]="180">
+        {{ subtitle }}
+      </p>
+    }
+  </div>
+</header>
