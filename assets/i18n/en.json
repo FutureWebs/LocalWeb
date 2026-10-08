@@ -1,0 +1,59 @@
+{
+  "HEADER": {
+    "CONTACT": "Contact Us",
+    "CHANGE_LANG": "ES"
+  },
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About Us",
+    "VISION": "Our Vision",
+    "PROJECTS": "Projects",
+    "CONTACT": "Contact"
+  },
+  "SCROLLY": {
+    "HOME": {
+      "TITLE": "FutureWebs",
+      "SUBTITLE": "Cross the event horizon.",
+      "BTN_START": "Start Journey"
+    },
+    "ABOUT": {
+      "TITLE": "About Us",
+      "TEXT": "Robust architectures and immersive experiences."
+    },
+    "VISION": {
+      "TITLE": "Our Vision",
+      "TEXT": "Pushing engineering to the limit. Breaking visual monotony."
+    },
+    "PROJECTS": {
+      "TITLE": "Projects",
+      "TEXT": "Complex systems, elegant solutions.",
+      "BTN_VIEW": "View Projects"
+    },
+    "CONTACT": {
+      "TITLE": "Contact",
+      "TEXT": "The singularity awaits.",
+      "PLACEHOLDER_NAME": "Name",
+      "PLACEHOLDER_EMAIL": "Email",
+      "PLACEHOLDER_MESSAGE": "Your idea...",
+      "BTN_SUBMIT": "Send"
+    }
+  },
+  "PROJECTS_LIST": {
+    "BTN_BACK": "Return",
+    "MAIN_TITLE": "Our Experiences",
+    "BTN_EXPLORE": "Explore Code",
+    "PROJ_1": {
+      "TITLE": "Modular Educational Platform",
+      "DESC": "Full-Stack architecture in Angular and Spring Boot. Interactive content blocks management and social validation."
+    },
+    "PROJ_2": {
+      "TITLE": "Automated Video Generator",
+      "DESC": "Pipeline designed for YouTube channels. Script parsing, automated voice synthesis, and 2D cutout animation."
+    },
+    "PROJ_3": {
+      "TITLE": "Competitive C++ Transpiler",
+      "DESC": "Conceptual design of a specific transpiler language for extreme optimization in highly competitive environments."
+    }
+  }
+
+}
