@@ -1,20 +1,23 @@
-import { Injectable, signal, inject } from '@angular/core';
+import {Injectable, signal, inject, Inject, PLATFORM_ID} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import {isPlatformBrowser} from '@angular/common';
 
 export type Language = 'en' | 'es';
 export type GravityState = 'normal' | 'unstable' | 'absorbing' | 'void';
 export type AppView = 'main' | 'projects'; //
+export type Theme = 'light' | 'dark';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
   private translate = inject(TranslateService);
   private readonly langKey = 'preferred_language';
+  private readonly themeKey = 'app-theme';
 
   // Usamos Signals en lugar de BehaviorSubject (estándar de Angular 18+)
   public currentLanguage = signal<Language>('es');
   public gravityState = signal<GravityState>('normal');
   public currentView = signal<AppView>('main');
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.translate.addLangs(['es', 'en']);
     this.initializeLanguage();
   }
@@ -54,22 +57,66 @@ export class ThemeService {
     this.translate.use(lang).subscribe();
   }
 
-  // --- LÓGICA DEL AGUJERO NEGRO (GRAVEDAD) ---
+  setTheme(theme: Theme, options?: { animate?: boolean; event?: MouseEvent }) {
+    if (!isPlatformBrowser(this.platformId)) return;
 
-  setUnstableGravity(): void {
-    this.gravityState.set('unstable');
+    const animate = options?.animate ?? true;
+    const event = options?.event;
+
+    if (this.current === theme && animate) return;
+
+    if (!animate || !(document as any).startViewTransition) {
+      this.applyThemeDOM(theme);
+      return;
+    }
+
+    // Obtenemos coordenadas seguras del click (o centro si no existe)
+    const x = event ? event.clientX : window.innerWidth / 2;
+    const y = event ? event.clientY : window.innerHeight / 2;
+
+    // Cálculo correcto de la distancia máxima a las esquinas de la ventana
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = (document as any).startViewTransition(() => {
+      this.applyThemeDOM(theme);
+    });
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`
+          ],
+        },
+        {
+          duration: 600,
+          easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+          pseudoElement: '::view-transition-new(root)',
+        }
+      );
+    });
   }
 
-  triggerBlackHoleAbsorption(): void {
-    this.gravityState.set('absorbing');
-
-    // Simula el paso al "vacío" de tranquilidad después de 3 segundos
-    setTimeout(() => {
-      this.gravityState.set('void');
-    }, 3000);
+  private applyThemeDOM(theme: Theme) {
+    document.body.classList.remove('theme-light', 'theme-dark');
+    document.body.classList.add(`theme-${theme}`);
+    localStorage.setItem(this.themeKey, theme);
   }
 
-  resetGravity(): void {
-    this.gravityState.set('normal');
+  loadTheme() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    const theme = (localStorage.getItem(this.themeKey) as Theme) || 'light';
+    this.setTheme(theme, { animate: false });
   }
+
+  get current(): Theme {
+    if (!isPlatformBrowser(this.platformId)) return 'light';
+    return (localStorage.getItem(this.themeKey) as Theme) || 'light';
+  }
+
+
 }

@@ -1,7 +1,8 @@
 {
   "HEADER": {
     "CONTACT": "Contáctanos",
-    "CHANGE_LANG": "EN"
+    "CHANGE_LANG": "EN",
+    "TOGGLE_THEME": "Cambiar tema"
   },
   "NAV": {
     "HOME": "Inicio",

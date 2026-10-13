@@ -15,4 +15,13 @@ export class HeaderComponent {
   toggleLang() {
     this.themeService.toggleLanguage();
   }
+
+  toggleTheme(event: MouseEvent) {
+    const nextTheme = this.themeService.current === 'light' ? 'dark' : 'light';
+    this.themeService.setTheme(nextTheme, { animate: true, event: event });
+  }
+
+  get currentThemeIcon(): string {
+    return this.themeService.current === 'light' ? 'pi pi-moon' : 'pi pi-sun';
+  }
 }
