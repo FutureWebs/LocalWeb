@@ -65,36 +65,41 @@ export class ThemeService {
 
     if (this.current === theme && animate) return;
 
+    // Si no se requiere animación o el navegador no la soporta
     if (!animate || !(document as any).startViewTransition) {
       this.applyThemeDOM(theme);
       return;
     }
 
-    // Obtenemos coordenadas seguras del click (o centro si no existe)
-    const x = event ? event.clientX : window.innerWidth / 2;
-    const y = event ? event.clientY : window.innerHeight / 2;
+    // 1. Obtener las coordenadas del clic. Si no hay evento, usamos el centro de la pantalla.
+    const x = (event?.clientX && event.clientX > 0) ? event.clientX : window.innerWidth / 2;
+    const y = (event?.clientY && event.clientY > 0) ? event.clientY : window.innerHeight / 2;
 
-    // Cálculo correcto de la distancia máxima a las esquinas de la ventana
+    // 2. Calcular la distancia desde el clic hasta la esquina más lejana de la pantalla (Radio final)
     const endRadius = Math.hypot(
       Math.max(x, window.innerWidth - x),
       Math.max(y, window.innerHeight - y)
     );
 
+    // 3. Iniciar la transición de vista
     const transition = (document as any).startViewTransition(() => {
       this.applyThemeDOM(theme);
     });
 
+    // 4. Cuando la transición esté lista, animamos el pseudo-elemento "new" (el nuevo tema)
     transition.ready.then(() => {
       document.documentElement.animate(
         {
+          // Definimos el camino del clip-path: de un círculo de 0px a uno que cubre la pantalla
           clipPath: [
             `circle(0px at ${x}px ${y}px)`,
             `circle(${endRadius}px at ${x}px ${y}px)`
           ],
         },
         {
-          duration: 600,
-          easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+          duration: 500,
+          easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+          // Animamos la capa nueva para que se expanda sobre la vieja
           pseudoElement: '::view-transition-new(root)',
         }
       );

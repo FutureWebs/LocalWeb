@@ -4,12 +4,13 @@
   left: 0;
   width: 100%;
   padding: 1.2rem 2rem;
-  z-index: 1000;
+  z-index: 99999;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Separa el logo a la izquierda y los botones a la derecha */
+  justify-content: space-between;
   pointer-events: none;
   box-sizing: border-box;
+
 
   .logo {
     pointer-events: auto;

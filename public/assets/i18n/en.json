@@ -4,6 +4,16 @@
     "CHANGE_LANG": "ES",
     "TOGGLE_THEME": "Toggle theme"
   },
+
+  "ABOUT": {
+    "SUBTITLE": "About us",
+    "TITLE": "ABOUT FUTURE WEBS",
+    "DESCRIPTION_1": "We craft unique digital experiences, pairing high-impact design with solid and scalable software architecture.",
+    "DESCRIPTION_2": "Turning complex ideas into clean, agile, and future-proof code.",
+    "POLAROID_TITLE": "OUR PROJECTS",
+    "POLAROID_SUBTITLE": "Scroll down to enter the showcase"
+  },
+
   "NAV": {
     "HOME": "Home",
     "ABOUT": "About Us",

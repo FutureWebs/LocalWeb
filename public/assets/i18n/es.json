@@ -4,6 +4,19 @@
     "CHANGE_LANG": "EN",
     "TOGGLE_THEME": "Cambiar tema"
   },
+  "ABOUT": {
+    "SUBTITLE": "Sobre nosotros",
+    "TITLE": "SOBRE FUTURE WEBS",
+    "DESCRIPTION_1": "Creamos experiencias digitales únicas, combinando diseño de alto impacto con arquitecturas sólidas y escalables.",
+    "DESCRIPTION_2": "Transformamos ideas complejas en código limpio, ágil y preparado para el futuro.",
+    "POLAROID_TITLE": "NUESTROS PROYECTOS",
+    "POLAROID_SUBTITLE": "Haz scroll para explorar nuestra galería"
+  },
+
+
+
+
+
   "NAV": {
     "HOME": "Inicio",
     "ABOUT": "Sobre nosotros",

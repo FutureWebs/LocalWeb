@@ -1,0 +1,18 @@
+<section class="projects-section">
+  <div class="projects-container">
+    <div class="projects-header">
+      <span class="projects-subtitle">{{ 'PROJECTS.SUBTITLE' | translate }}</span>
+      <h2 class="projects-title">{{ 'PROJECTS.TITLE' | translate }}</h2>
+    </div>
+
+    <div class="projects-grid">
+      @for (proj of projectsList; track proj.title) {
+        <div class="project-card">
+          <span class="project-tag">{{ proj.tag }}</span>
+          <h3>{{ proj.title }}</h3>
+          <p>{{ proj.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

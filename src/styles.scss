@@ -9,6 +9,11 @@
   --secondary-text: #656565;
   --accent-color: #3498db;
   --sketch-color: rgba(48, 48, 48, 0.16);
+
+  --polaroid-bg: #ffffff;
+  --polaroid-shadow: rgba(0, 0, 0, 0.15);
+  --tape-color: rgba(240, 230, 210, 0.7);
+  --about-title-color: var(--text-color);
 }
 
 /* Light Theme */
@@ -18,6 +23,10 @@ body.theme-light {
   --secondary-text: #656565;
   --accent-color: #3498db;
   --sketch-color: rgba(48, 48, 48, 0.16);
+
+  --polaroid-bg: #ffffff;
+  --polaroid-shadow: rgba(0, 0, 0, 0.12);
+  --tape-color: rgba(230, 220, 200, 0.75);
 }
 
 /* Dark Theme (Grafito) */
@@ -27,6 +36,10 @@ body.theme-dark {
   --secondary-text: #c6c2b5;
   --accent-color: #477393;
   --sketch-color: rgba(245, 240, 232, 0.06);
+
+  --polaroid-bg: #ffffff;
+  --polaroid-shadow: rgba(0, 0, 0, 0.5);
+  --tape-color: rgba(230, 220, 200, 0.75);
 }
 body {
   background-color: var(--bg-color);
@@ -40,11 +53,14 @@ body {
 }
 
 /* Asegurar que el contenido principal esté por encima del fondo */
-app-header, main, router-outlet, app-background-pattern {
+ main, router-outlet, app-background-pattern {
   position: relative;
   z-index: 1;
 }
-
+app-header {
+  position: relative;
+  z-index: 9999;
+}
 /* Configuración de View Transitions para el círculo */
 ::view-transition-old(root),
 ::view-transition-new(root) {

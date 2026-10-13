@@ -1,0 +1,38 @@
+<section class="about-section" #aboutSection>
+  <div class="about-grid">
+
+    <!-- Columna Izquierda: Texto About -->
+    <div class="about-text-content">
+      <span class="about-subtitle">{{ 'ABOUT.SUBTITLE' | translate }}</span>
+      <h2 class="about-title">{{ 'ABOUT.TITLE' | translate }}</h2>
+      <p class="about-description">
+        {{ 'ABOUT.DESCRIPTION_1' | translate }}
+      </p>
+      <p class="about-description highlight">
+        {{ 'ABOUT.DESCRIPTION_2' | translate }}
+      </p>
+    </div>
+
+    <!-- Columna Derecha: Polaroid con efecto de Zoom tipo Lente -->
+    <div class="about-visual">
+      <div class="polaroid-wrapper" #polaroidWrapper>
+        <div class="polaroid-tape"></div>
+
+        <div class="polaroid-frame">
+          <div class="polaroid-inner-content">
+            <div class="preview-hero">
+              <span class="preview-badge">FUTURE WEBS</span>
+              <h3>{{ 'ABOUT.POLAROID_TITLE' | translate }}</h3>
+              <p>{{ 'ABOUT.POLAROID_SUBTITLE' | translate }}</p>
+            </div>
+          </div>
+          <div class="polaroid-caption">
+            <span>Future Webs 2026 // Córdoba</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
