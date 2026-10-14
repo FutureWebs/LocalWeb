@@ -17,53 +17,58 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
   @ViewChild('aboutSection', { static: true }) aboutSection!: ElementRef<HTMLElement>;
   @ViewChild('polaroidWrapper', { static: true }) polaroidWrapper!: ElementRef<HTMLElement>;
 
-  private scrollCtx?: gsap.Context;
+  private gsapMatcher?: gsap.MatchMedia;
 
   ngAfterViewInit(): void {
     const sectionEl = this.aboutSection.nativeElement;
     const wrapperEl = this.polaroidWrapper.nativeElement;
 
-    this.scrollCtx && this.scrollCtx.revert();
+    this.gsapMatcher = gsap.matchMedia();
 
-    this.scrollCtx = gsap.context(() => {
+    this.gsapMatcher.add({
+      isDesktop: '(min-width: 769px)',
+      isMobile: '(max-width: 768px)'
+    }, (context) => {
+      const { isDesktop } = context.conditions as { isDesktop: boolean };
+
+      // Si es escritorio usamos un recorrido largo, si es celular uno más corto para evitar saltos pesados
+      const endScroll = isDesktop ? '+=250%' : '+=150%';
+      // En celular hacemos la escala un poco menor para que no desborde de forma violenta el viewport táctil
+      const scaleValue = isDesktop ? 9.5 : 6;
+      const xOffset = isDesktop ? '30vw' : '0vw';
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionEl,
           start: 'top top',
-          end: '+=200%', // Espacio de scroll para la animación completa de ida y vuelta
-          scrub: true,   // Sincroniza la animación exactamente con el movimiento de la rueda del mouse
-          pin: true,     // Fija la sección mientras ocurre el zoom
-          anticipatePin: 1
+          end: endScroll,
+          scrub: true,
+          pin: true,
+          invalidateOnRefresh: true // Vital para que el celular recalcule bien al redimensionar o scrollear
         }
       });
 
-      // 1. Ocultamos el texto lateral de la izquierda
-      tl.to('.about-text-content', { opacity: 0, x: -60, duration: 0.3 }, 0)
-        .to('.polaroid-tape', { opacity: 0, duration: 0.15 }, 0)
-        .to('.polaroid-caption', { opacity: 0, duration: 0.15 }, 0)
-
-        // 2. Zoom de la Polaroid (crece, se centra y cubre toda la pantalla)
+      tl.to('.polaroid-tape', { opacity: 0, duration: 0.3 }, 0.2)
+        .to('.polaroid-caption', { opacity: 0, duration: 0.3 }, 0.2)
+        .to('.preview-hero', { opacity: 0, duration: 0.4 }, 0.2)
+        .to('.about-text-content', { opacity: 0, x: isDesktop ? -60 : 0, duration: 0.5 }, 0.4)
         .to(wrapperEl, {
-          scale: 9.5,
+          scale: scaleValue,
           rotation: 0,
-          x: '30vw',
+          x: xOffset,
           y: '0vh',
-          ease: 'power2.inOut'
-        }, 0)
-
-        // 3. Fundido del marco blanco
-        .to('.polaroid-frame', {
-          borderRadius: '0px',
-          padding: '0px',
-          boxShadow: 'none',
-          background: 'transparent',
-          ease: 'power2.inOut'
-        }, 0);
-
-    }, sectionEl);
+          ease: 'power2.inOut',
+          duration: 1.2
+        }, 0.3)
+        .to(wrapperEl, {
+          opacity: 0,
+          duration: 0.6,
+          ease: 'power1.in'
+        }, 0.6);
+    });
   }
 
   ngOnDestroy(): void {
-    this.scrollCtx && this.scrollCtx.revert();
+    this.gsapMatcher?.revert();
   }
 }

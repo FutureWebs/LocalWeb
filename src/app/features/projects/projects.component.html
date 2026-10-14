@@ -1,18 +1,45 @@
-<section class="projects-section">
+<section class="projects-section" id="projects-section">
   <div class="projects-container">
+
     <div class="projects-header">
       <span class="projects-subtitle">{{ 'PROJECTS.SUBTITLE' | translate }}</span>
       <h2 class="projects-title">{{ 'PROJECTS.TITLE' | translate }}</h2>
     </div>
 
-    <div class="projects-grid">
-      @for (proj of projectsList; track proj.title) {
-        <div class="project-card">
-          <span class="project-tag">{{ proj.tag }}</span>
-          <h3>{{ proj.title }}</h3>
-          <p>{{ proj.desc }}</p>
+    <div class="projects-list">
+      @for (project of projectsList; track $index) {
+        <div class="project-item" #projectItem [ngClass]="'align-' + project.align">
+
+          <!-- Polaroid Interactiva con efecto de revelado -->
+          <div class="polaroid-wrapper" (click)="openProject(project.link)">
+            <div class="polaroid-tape"></div>
+            <div class="polaroid-frame">
+              <div class="polaroid-image-container">
+                <!-- Máscara que genera el efecto de revelado tipo papel fotográfico -->
+                <div class="polaroid-reveal-mask">
+                  <img [src]="project.image" [alt]="project.titleKey | translate" class="project-img" />
+                </div>
+                <div class="project-overlay-badge">{{ project.tagKey | translate }}</div>
+              </div>
+              <div class="polaroid-caption">
+                <span>{{ project.titleKey | translate }}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Texto descriptivo extra -->
+          <div class="project-info">
+            <span class="project-tag-desktop">{{ project.tagKey | translate }}</span>
+            <h3 class="project-name">{{ project.titleKey | translate }}</h3>
+            <p class="project-desc">{{ project.descKey | translate }}</p>
+            <button class="project-link-btn" (click)="openProject(project.link)">
+              {{ 'PROJECTS.VIEW_MORE' | translate }} <i class="pi pi-arrow-right"></i>
+            </button>
+          </div>
+
         </div>
       }
     </div>
+
   </div>
 </section>

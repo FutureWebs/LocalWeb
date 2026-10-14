@@ -1,8 +1,13 @@
 {
+  "HERO": {
+    "SOMOS": "Somos",
+    "SUBTITLE": "Desarrollo de software a medida, arquitecturas limpias y experiencias digitales únicas.",
+    "CONTACT": "Contáctanos"
+  },
   "HEADER": {
-    "CONTACT": "Contáctanos",
     "CHANGE_LANG": "EN",
-    "TOGGLE_THEME": "Cambiar tema"
+    "CONTACT": "Contáctanos",
+    "TOGGLE_THEME": "Cambiar Tema"
   },
   "ABOUT": {
     "SUBTITLE": "Sobre nosotros",
@@ -13,60 +18,27 @@
     "POLAROID_SUBTITLE": "Haz scroll para explorar nuestra galería"
   },
 
-
-
-
-
-  "NAV": {
-    "HOME": "Inicio",
-    "ABOUT": "Sobre nosotros",
-    "VISION": "Nuestra visión",
-    "PROJECTS": "Proyectos",
-    "CONTACT": "Contacto"
-  },
-  "SCROLLY": {
-    "HOME": {
-      "TITLE": "FutureWebs",
-      "SUBTITLE": "Traspasa el horizonte de sucesos.",
-      "BTN_START": "Iniciar Viaje"
+  "PROJECTS": {
+    "SUBTITLE": "Lo que hemos construido",
+    "TITLE": "Proyectos Destacados",
+    "VIEW_MORE": "Ver proyecto",
+    "STUDER": {
+      "TITLE": "STUDER Platform",
+      "DESC": "Plataforma educativa modular basada en bloques de aprendizaje interactivos, desafíos y validación social.",
+      "TAG": "Angular & Spring Boot"
     },
-    "ABOUT": {
-      "TITLE": "Sobre nosotros",
-      "TEXT": "Arquitecturas robustas y experiencias inmersivas."
+    "TEG": {
+      "TITLE": "T.E.G. Online",
+      "DESC": "Adaptación digital del clásico juego de estrategia y táctica global, optimizado para partidas multijugador fluidas.",
+      "TAG": "Java & Arquitectura Limpia"
     },
-    "VISION": {
-      "TITLE": "Nuestra Visión",
-      "TEXT": "Llevar la ingeniería al límite. Romper la monotonía visual."
-    },
-    "PROJECTS": {
-      "TITLE": "Proyectos",
-      "TEXT": "Sistemas complejos, soluciones elegantes.",
-      "BTN_VIEW": "Ver Proyectos"
-    },
-    "CONTACT": {
-      "TITLE": "Contacto",
-      "TEXT": "La singularidad te espera.",
-      "PLACEHOLDER_NAME": "Nombre",
-      "PLACEHOLDER_EMAIL": "Correo",
-      "PLACEHOLDER_MESSAGE": "Tu idea...",
-      "BTN_SUBMIT": "Enviar"
-    }
-  },
-  "PROJECTS_LIST": {
-    "BTN_BACK": "Volver",
-    "MAIN_TITLE": "Nuestras Experiencias",
-    "BTN_EXPLORE": "Explorar Código",
-    "PROJ_1": {
-      "TITLE": "Plataforma Educativa Modular",
-      "DESC": "Arquitectura Full-Stack en Angular y Spring Boot. Gestión de bloques de contenido interactivos y validación social."
-    },
-    "PROJ_2": {
-      "TITLE": "Generador de Video Automatizado",
-      "DESC": "Pipeline diseñado para canales de YouTube. Parseo de scripts, síntesis de voz automatizada y animación cutout 2D."
-    },
-    "PROJ_3": {
-      "TITLE": "Transpilador C++ Competitivo",
-      "DESC": "Diseño conceptual de un lenguaje transpilar específico para optimización extrema en entornos de alta competencia."
+    "FUTUREWEBS": {
+      "TITLE": "FutureWebs Brand",
+      "DESC": "Identidad visual integral, landing pages de alta conversión y componentes interactivos en canvas.",
+      "TAG": "UI/UX & SCSS"
     }
   }
+
+
+
 }

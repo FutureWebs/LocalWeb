@@ -1,8 +1,9 @@
 <header class="header-container">
   <div class="logo">FUTURE</div>
   <div class="actions">
-    <button class="btn-lang" (click)="toggleLang()">{{ 'HEADER.CHANGE_LANG' | translate }}</button>
-
+    <button class="btn-lang" [title]="'HEADER.CHANGE_LANG' | translate" (click)="toggleLang()">
+      <i class="pi pi-language"></i>
+    </button>
     <button
       type="button"
       class="header__control-btn"

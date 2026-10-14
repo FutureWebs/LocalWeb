@@ -14,6 +14,7 @@
   --polaroid-shadow: rgba(0, 0, 0, 0.15);
   --tape-color: rgba(240, 230, 210, 0.7);
   --about-title-color: var(--text-color);
+  --text-color-inverse: #4e4d4d;
 }
 
 /* Light Theme */
@@ -27,6 +28,7 @@ body.theme-light {
   --polaroid-bg: #ffffff;
   --polaroid-shadow: rgba(0, 0, 0, 0.12);
   --tape-color: rgba(230, 220, 200, 0.75);
+  --text-color-inverse: #4e4d4d;
 }
 
 /* Dark Theme (Grafito) */
@@ -34,13 +36,15 @@ body.theme-dark {
   --bg-color: #212121;
   --text-color: #edece3;
   --secondary-text: #c6c2b5;
-  --accent-color: #477393;
+  --accent-color: #3498db;
   --sketch-color: rgba(245, 240, 232, 0.06);
 
   --polaroid-bg: #ffffff;
   --polaroid-shadow: rgba(0, 0, 0, 0.5);
   --tape-color: rgba(230, 220, 200, 0.75);
+  --text-color-inverse: #333333;
 }
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -49,19 +53,67 @@ body {
   position: relative;
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
-
 }
 
-/* Asegurar que el contenido principal esté por encima del fondo */
- main, router-outlet, app-background-pattern {
+/* Contenedor principal transparente para que el patrón de fondo se vea SIEMPRE */
+main.main-viewport {
   position: relative;
   z-index: 1;
+  background: transparent;
 }
+
+app-background-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
 app-header {
   position: relative;
   z-index: 9999;
 }
-/* Configuración de View Transitions para el círculo */
+
+/* =========================================
+   CUSTOM SCROLLBAR (Estilo Notebook / Sketch)
+   ========================================= */
+
+/* Ancho general de la barra */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* El riel / fondo por donde se desliza la barra */
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-left: 1px dashed rgba(0, 0, 0, 0.05); // Un sutil toque de línea de cuaderno
+}
+
+/* El "puntero" o barra que se mueve */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-text);
+  border-radius: 5px;
+  border: 2px solid var(--bg-color); /* Crea un efecto flotante muy limpio */
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: var(--text-color);
+  }
+}
+
+/* Soporte para navegadores basados en Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-text) var(--bg-color);
+}
+
+
+
+/* View Transitions */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
