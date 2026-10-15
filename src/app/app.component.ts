@@ -1,4 +1,4 @@
-import {Component, inject, signal} from '@angular/core';
+import {AfterViewInit, Component, inject, signal} from '@angular/core';
 import { HeaderComponent } from './shared/header/header.component';
 import {ThemeService} from './core/services/theme.service';
 import {BackgroundPatternComponent} from './shared/background/background-pattern.component';
@@ -25,7 +25,8 @@ import {ContactFooterComponent} from './shared/contact-footer/contact-footer.com
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+
+export class AppComponent  implements AfterViewInit{
   currentSection = signal<'about' | 'projects'>('about');
 
   switchToProjects() {
@@ -36,5 +37,12 @@ export class AppComponent {
   switchToAbout() {
     this.currentSection.set('about');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  ngAfterViewInit(): void {
+    // Forzamos un recálculo de todas las posiciones de scroll tras aplicar márgenes y cargas
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 300);
   }
 }

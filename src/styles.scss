@@ -86,7 +86,26 @@ app-background-pattern {
   z-index: 0;
   pointer-events: none;
 }
+.projects-section {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  padding: 6rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  z-index: 3;
 
+  /* Subimos la sección para que solape el espacio sobrante del pin de la Polaroid */
+  margin-top: -15vh;
+
+  @media (max-width: 768px) {
+    margin-top: -5vh; /* Un ajuste más sutil para celulares */
+    padding: 4rem 1rem;
+    min-height: auto;
+  }
+}
 app-header {
   position: relative;
   z-index: 9999;
