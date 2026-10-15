@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import emailjs from '@emailjs/browser';
-import { environment } from '../../environments/environment'; // Asegúrate de que apunte a tu environment
+import { environment } from '../../../environments/environment'; // Asegúrate de que apunte a tu environment
 
 export interface ContactFormData {
   nombreCompleto: string;
