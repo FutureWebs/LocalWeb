@@ -8,7 +8,7 @@
   justify-content: center;
   background-color: transparent;
   z-index: 3;
-  overflow: visible; // Crucial para que el celular no bloquee el scroll
+  overflow: visible;
 
   @media (max-width: 768px) {
     padding: 4rem 1rem;
@@ -22,6 +22,7 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  overflow: visible;
 
   .projects-header {
     text-align: center;
@@ -50,6 +51,7 @@
     display: flex;
     flex-direction: column;
     gap: 6rem;
+    overflow: visible;
 
     @media (max-width: 768px) {
       gap: 4rem;
@@ -74,12 +76,14 @@
         flex-direction: column;
         gap: 2rem;
         direction: ltr !important;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
 }
 
-/* Polaroid con Máscara de Revelado */
+/* Polaroid Estándar */
 .polaroid-wrapper {
   position: relative;
   width: 100%;
@@ -88,6 +92,8 @@
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: rotate(-2deg);
+  padding-top: 15px;
+
 
   &:nth-child(even) {
     transform: rotate(2deg);
@@ -101,80 +107,69 @@
   }
 
   .polaroid-tape {
-    position: absolute;
-    top: -16px;
-    left: 50%;
-    transform: translateX(-50%) rotate(3deg);
-    width: 100px;
-    height: 30px;
-    background: var(--tape-color);
+    position: absolute !important;
+    top: -7px !important;
+    left: 50% !important;
+    transform: translateX(-50%) rotate(3deg) !important;
+    width: 100px !important;
+    height: 30px !important;
+    background: var(--tape-color) !important;
     backdrop-filter: blur(2px);
     border-left: 2px dashed rgba(0,0,0,0.1);
     border-right: 2px dashed rgba(0,0,0,0.1);
     box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-    z-index: 10;
+    z-index: 9999 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .polaroid-frame {
     background: var(--polaroid-bg);
-    padding: 1rem 1rem 2.5rem 1rem;
+    /* Damos espacio suficiente abajo para que el texto de la leyenda quepa holgadamente */
+    padding: 1rem 1rem 3rem 1rem !important;
     border-radius: 6px;
     box-shadow: 0 10px 30px var(--polaroid-shadow);
     display: flex;
     flex-direction: column;
     gap: 1rem;
     box-sizing: border-box;
+    position: relative;
+    z-index: 2; /* El marco se queda en una capa intermedia segura */
 
     .polaroid-image-container {
       width: 100%;
       height: 240px;
-      background: #dfded5; // Color papel fotográfico inicial antes de revelar
+      background: #dfded5;
       border-radius: 3px;
       overflow: hidden;
       position: relative;
 
-      /* Contenedor que realiza el efecto de revelado deslizándose */
-      .polaroid-reveal-mask {
+      .project-img {
         width: 100%;
         height: 100%;
-        position: relative;
-        overflow: hidden;
-        will-change: transform;
-
-        .project-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      }
-
-      .project-overlay-badge {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        font-family: 'Gasoek One', sans-serif;
-        font-size: 0.7rem;
-        background: var(--text-color);
-        color: var(--bg-color);
-        padding: 0.2rem 0.5rem;
-        border-radius: 4px;
-        display: none;
-
-        @media (max-width: 768px) {
-          display: inline-block;
-        }
+        object-fit: cover;
       }
     }
 
+    /* FORZAMOS EL TEXTO DE ABAJO PARA QUE SE VEA CLARAMENTE */
     .polaroid-caption {
-      text-align: center;
-      font-family: 'Reenie Beanie', cursive;
-      font-size: 1.5rem;
-      color: var(--text-color-inverse);
+      text-align: center !important;
+      font-family: 'Reenie Beanie', cursive !important;
+      font-size: 1.8rem !important; /* Un poquito más grande para asegurarnos */
+      color: #303030 !important; /* Color directo para evitar que una variable no cargue */
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      margin-top: 0.5rem;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      z-index: 5 !important;
     }
+  }
+  @media (max-width: 768px) {
+    max-width: 320px;
   }
 }
 
@@ -182,7 +177,6 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  will-change: opacity, transform;
 
   .project-tag-desktop {
     font-family: 'Gasoek One', sans-serif;
@@ -190,10 +184,6 @@
     color: var(--accent-color);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-
-    @media (max-width: 768px) {
-      display: none; // En móvil usamos el badge dentro de la foto
-    }
   }
 
   .project-name {
@@ -202,11 +192,6 @@
     color: var(--text-color);
     margin: 0;
     letter-spacing: 0.05em;
-
-    @media (max-width: 768px) {
-      font-size: 1.8rem;
-      text-align: center;
-    }
   }
 
   .project-desc {
@@ -215,11 +200,6 @@
     line-height: 1.6;
     color: var(--secondary-text);
     margin: 0;
-
-    @media (max-width: 768px) {
-      text-align: center;
-      font-size: 1rem;
-    }
   }
 
   .project-link-btn {
@@ -248,9 +228,10 @@
         transform: translateX(4px);
       }
     }
+  }
 
-    @media (max-width: 768px) {
-      margin: 0 auto;
-    }
+
+  @media (max-width: 768px) {
+    display: none !important;
   }
 }

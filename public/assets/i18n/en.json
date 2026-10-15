@@ -38,6 +38,40 @@
       "DESC": "Comprehensive visual identity, high-conversion landing pages, and interactive canvas components.",
       "TAG": "UI/UX & SCSS"
     }
+  },
+  "PROCESS": {
+    "SUBTITLE": "The method behind the sketch",
+    "TITLE": "How We Work",
+    "STEP1": {
+      "NAME": "Planning & Strategy",
+      "DESC": "We deeply understand your business, requirements, and realistic possibilities to find the perfect architecture and tech solution."
+    },
+    "STEP2": {
+      "NAME": "Construction & Code",
+      "DESC": "We build smooth interfaces and robust backend services using modular components and a high-performance modern stack."
+    },
+    "STEP3": {
+      "NAME": "Deployment & Delivery",
+      "DESC": "We launch your product ensuring full optimization, offering continuous support, domain management, and long-term maintenance."
+    }
+  },
+  "CONTACT": {
+    "SUBTITLE": "Let's talk about your next project",
+    "TITLE": "Contact Us",
+    "INFO_TITLE": "Let's build together",
+    "INFO_DESC": "Do you have an idea in mind or need to scale your platform? Reach out through any of our official channels or fill out the form.",
+    "FORM": {
+      "NAME": "Your Name",
+      "NAME_PLACEHOLDER": "Enter your full name",
+      "EMAIL": "Your Email",
+      "EMAIL_PLACEHOLDER": "you@email.com",
+      "MESSAGE": "Message or Project",
+      "MESSAGE_PLACEHOLDER": "Tell us about your project...",
+      "SEND": "Send Message",
+      "SENDING": "Sending...",
+      "SUCCESS": "Message sent successfully! We'll get in touch soon.",
+      "ERROR": "There was an error sending your message. Please try again."
+    }
   }
 
 }

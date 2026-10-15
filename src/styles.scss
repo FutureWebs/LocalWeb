@@ -12,9 +12,14 @@
 
   --polaroid-bg: #ffffff;
   --polaroid-shadow: rgba(0, 0, 0, 0.15);
-  --tape-color: rgba(240, 230, 210, 0.7);
+  --tape-color: rgba(240, 230, 210, 0.77);
   --about-title-color: var(--text-color);
   --text-color-inverse: #4e4d4d;
+
+  --contact-card-bg: #ffffff;
+  --contact-card-text: #303030;
+  --contact-input-bg: #f5f4ed;
+  --contact-input-border: rgba(48, 48, 48, 0.15);
 }
 
 /* Light Theme */
@@ -29,6 +34,11 @@ body.theme-light {
   --polaroid-shadow: rgba(0, 0, 0, 0.12);
   --tape-color: rgba(230, 220, 200, 0.75);
   --text-color-inverse: #4e4d4d;
+
+  --contact-card-bg: #ffffff;
+  --contact-card-text: #303030;
+  --contact-input-bg: #f5f4ed;
+  --contact-input-border: rgba(48, 48, 48, 0.15);
 }
 
 /* Dark Theme (Grafito) */
@@ -43,6 +53,11 @@ body.theme-dark {
   --polaroid-shadow: rgba(0, 0, 0, 0.5);
   --tape-color: rgba(230, 220, 200, 0.75);
   --text-color-inverse: #333333;
+
+  --contact-card-bg: #ffffff;
+  --contact-card-text: #303030;
+  --contact-input-bg: #f5f4ed;
+  --contact-input-border: rgba(48, 48, 48, 0.15);
 }
 
 body {
@@ -111,7 +126,9 @@ app-header {
   scrollbar-color: var(--secondary-text) var(--bg-color);
 }
 
-
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.05em;
+}
 
 /* View Transitions */
 ::view-transition-old(root),

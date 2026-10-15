@@ -6,6 +6,8 @@ import {AboutComponent} from './features/about/about.component';
 import {CommonModule} from '@angular/common';
 import {ProjectsComponent} from './features/projects/projects.component';
 import {HeroComponent} from './features/hero/hero.component';
+import {WorkProcessComponent} from './features/work-process/work-process.component';
+import {ContactFooterComponent} from './shared/contact-footer/contact-footer.component';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,9 @@ import {HeroComponent} from './features/hero/hero.component';
     BackgroundPatternComponent,
     AboutComponent,
     ProjectsComponent,
-    HeroComponent
+    HeroComponent,
+    WorkProcessComponent,
+    ContactFooterComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']

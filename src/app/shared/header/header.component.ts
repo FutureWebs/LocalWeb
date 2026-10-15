@@ -24,4 +24,9 @@ export class HeaderComponent {
   get currentThemeIcon(): string {
     return this.themeService.current === 'light' ? 'pi pi-moon' : 'pi pi-sun';
   }
+
+  scrollToContact() {
+    const contactEl = document.getElementById('contact-section');
+    contactEl?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

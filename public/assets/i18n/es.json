@@ -37,8 +37,41 @@
       "DESC": "Identidad visual integral, landing pages de alta conversión y componentes interactivos en canvas.",
       "TAG": "UI/UX & SCSS"
     }
+  },
+
+  "PROCESS": {
+    "SUBTITLE": "El método detrás del boceto",
+    "TITLE": "Cómo Trabajamos",
+    "STEP1": {
+      "NAME": "Planificación & Estrategia",
+      "DESC": "Entendemos a fondo tu negocio, tus necesidades y posibilidades reales para encontrar la arquitectura y solución tecnológica perfecta."
+    },
+    "STEP2": {
+      "NAME": "Construcción & Código",
+      "DESC": "Desarrollamos interfaces fluidas y servicios robustos utilizando componentes modulares y un stack moderno de alto rendimiento."
+    },
+    "STEP3": {
+      "NAME": "Despliegue & Entrega",
+      "DESC": "Publicamos tu producto asegurando la optimización total, ofreciendo soporte continuo, gestión de dominio y mantenimiento a largo plazo."
+    }
+  },
+  "CONTACT": {
+    "SUBTITLE": "Hablemos de tu próximo proyecto",
+    "TITLE": "Contáctanos",
+    "INFO_TITLE": "Construyamos juntos",
+    "INFO_DESC": "¿Tienes una idea en mente o necesitas escalar tu plataforma? Escríbenos por cualquiera de nuestros canales oficiales o completa el formulario.",
+    "FORM": {
+      "NAME": "Tu Nombre",
+      "NAME_PLACEHOLDER": "Ingresa tu nombre completo",
+      "EMAIL": "Tu Correo Electrónico",
+      "EMAIL_PLACEHOLDER": "tu@email.com",
+      "MESSAGE": "Mensaje o Proyecto",
+      "MESSAGE_PLACEHOLDER": "Cuéntanos sobre tu proyecto...",
+      "SEND": "Enviar Mensaje",
+      "SENDING": "Enviando...",
+      "SUCCESS": "¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.",
+      "ERROR": "Hubo un error al enviar el mensaje. Inténtalo de nuevo."
+    }
   }
-
-
 
 }

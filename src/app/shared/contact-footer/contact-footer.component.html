@@ -1,0 +1,89 @@
+<footer class="contact-footer-section" id="contact-section">
+  <div class="contact-container">
+
+    <div class="contact-header">
+      <span class="contact-subtitle">{{ 'CONTACT.SUBTITLE' | translate }}</span>
+      <h2 class="contact-title">{{ 'CONTACT.TITLE' | translate }}</h2>
+    </div>
+
+    <div class="contact-content-grid">
+
+      <!-- Información de Redes y Vías de Contacto -->
+      <div class="contact-info">
+        <h3>{{ 'CONTACT.INFO_TITLE' | translate }}</h3>
+        <p>{{ 'CONTACT.INFO_DESC' | translate }}</p>
+
+        <div class="social-links">
+          <a href="https://instagram.com/futurewebscba" target="_blank" class="social-badge">
+            <i class="pi pi-instagram"></i> Instagram (&#64;futurewebscba)
+          </a>
+          <a href="https://wa.me/5493510000000" target="_blank" class="social-badge">
+            <i class="pi pi-whatsapp"></i> WhatsApp
+          </a>
+          <a href="mailto:futurewebscba@gmail.com" class="social-badge">
+            <i class="pi pi-envelope"></i> futurewebscba&#64;gmail.com
+          </a>
+        </div>
+      </div>
+
+      <!-- Formulario de Contacto -->
+      <form class="contact-form" (submit)="onSubmit()">
+        <div class="form-group">
+          <label>{{ 'CONTACT.FORM.NAME' | translate }}</label>
+          <input
+            type="text"
+            [(ngModel)]="formData.nombreCompleto"
+            name="nombreCompleto"
+            required
+            [placeholder]="'CONTACT.FORM.NAME_PLACEHOLDER' | translate" />
+        </div>
+
+        <div class="form-group">
+          <label>{{ 'CONTACT.FORM.EMAIL' | translate }}</label>
+          <input
+            type="email"
+            [(ngModel)]="formData.correo"
+            name="correo"
+            required
+            [placeholder]="'CONTACT.FORM.EMAIL_PLACEHOLDER' | translate" />
+        </div>
+
+        <div class="form-group">
+          <label>{{ 'CONTACT.FORM.MESSAGE' | translate }}</label>
+          <textarea
+            rows="4"
+            [(ngModel)]="formData.mensaje"
+            name="mensaje"
+            required
+            [placeholder]="'CONTACT.FORM.MESSAGE_PLACEHOLDER' | translate"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="isSubmitting">
+          @if (isSubmitting) {
+            <span>{{ 'CONTACT.FORM.SENDING' | translate }}</span>
+          } @else {
+            <span>{{ 'CONTACT.FORM.SEND' | translate }}</span> <i class="pi pi-arrow-right"></i>
+          }
+        </button>
+
+        @if (successMessage) {
+          <p class="alert-success">{{ 'CONTACT.FORM.SUCCESS' | translate }}</p>
+        }
+        @if (errorMessage) {
+          <p class="alert-error">{{ 'CONTACT.FORM.ERROR' | translate }}</p>
+        }
+      </form>
+
+    </div>
+
+    <!-- Footer Minimalista -->
+    <div class="site-footer">
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>© 2026 FutureWebs. Córdoba, Argentina.</p>
+        <span class="footer-tag">Handcrafted code & sketch vibes</span>
+      </div>
+    </div>
+
+  </div>
+</footer>

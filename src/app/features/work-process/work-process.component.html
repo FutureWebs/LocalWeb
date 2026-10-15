@@ -1,0 +1,42 @@
+<section class="process-section" #processSection id="process-section">
+  <div class="process-container">
+
+    <div class="process-header">
+      <span class="process-subtitle">{{ 'PROCESS.SUBTITLE' | translate }}</span>
+      <h2 class="process-title">{{ 'PROCESS.TITLE' | translate }}</h2>
+    </div>
+
+    <div class="process-zigzag-flow">
+
+      <!-- Paso 1: Planificación (Izquierda) -->
+      <div class="process-row align-left" #processRow>
+
+        <div class="process-content-box">
+          <h3 class="process-heading">{{ 'PROCESS.STEP1.NAME' | translate }}</h3>
+          <p class="process-text">{{ 'PROCESS.STEP1.DESC' | translate }}</p>
+        </div>
+      </div>
+
+      <!-- Paso 2: Construcción (Derecha) -->
+      <div class="process-row align-right" #processRow>
+
+        <div class="process-content-box">
+          <h3 class="process-heading">{{ 'PROCESS.STEP2.NAME' | translate }}</h3>
+          <p class="process-text">{{ 'PROCESS.STEP2.DESC' | translate }}</p>
+
+        </div>
+      </div>
+
+      <!-- Paso 3: Despliegue / Entrega (Izquierda) -->
+      <div class="process-row align-left" #processRow>
+
+        <div class="process-content-box">
+          <h3 class="process-heading">{{ 'PROCESS.STEP3.NAME' | translate }}</h3>
+          <p class="process-text">{{ 'PROCESS.STEP3.DESC' | translate }}</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

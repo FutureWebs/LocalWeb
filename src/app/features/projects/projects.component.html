@@ -7,38 +7,82 @@
     </div>
 
     <div class="projects-list">
-      @for (project of projectsList; track $index) {
-        <div class="project-item" #projectItem [ngClass]="'align-' + project.align">
 
-          <!-- Polaroid Interactiva con efecto de revelado -->
-          <div class="polaroid-wrapper" (click)="openProject(project.link)">
-            <div class="polaroid-tape"></div>
-            <div class="polaroid-frame">
-              <div class="polaroid-image-container">
-                <!-- Máscara que genera el efecto de revelado tipo papel fotográfico -->
-                <div class="polaroid-reveal-mask">
-                  <img [src]="project.image" [alt]="project.titleKey | translate" class="project-img" />
-                </div>
-                <div class="project-overlay-badge">{{ project.tagKey | translate }}</div>
-              </div>
-              <div class="polaroid-caption">
-                <span>{{ project.titleKey | translate }}</span>
-              </div>
+      <!-- Proyecto 1: STUDER (Align Left) -->
+      <div class="project-item align-left">
+        <div class="polaroid-wrapper" (click)="openProject('#')">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-frame">
+            <div class="polaroid-image-container">
+              <img src="assets/images/project-studer.jpg" alt="STUDER Platform" class="project-img" />
+              <div class="project-overlay-badge">{{ 'PROJECTS.STUDER.TAG' | translate }}</div>
+            </div>
+            <div class="polaroid-caption">
+              <span>{{ 'PROJECTS.STUDER.TITLE' | translate }}</span>
             </div>
           </div>
-
-          <!-- Texto descriptivo extra -->
-          <div class="project-info">
-            <span class="project-tag-desktop">{{ project.tagKey | translate }}</span>
-            <h3 class="project-name">{{ project.titleKey | translate }}</h3>
-            <p class="project-desc">{{ project.descKey | translate }}</p>
-            <button class="project-link-btn" (click)="openProject(project.link)">
-              {{ 'PROJECTS.VIEW_MORE' | translate }} <i class="pi pi-arrow-right"></i>
-            </button>
-          </div>
-
         </div>
-      }
+
+        <div class="project-info">
+          <span class="project-tag-desktop">{{ 'PROJECTS.STUDER.TAG' | translate }}</span>
+          <h3 class="project-name">{{ 'PROJECTS.STUDER.TITLE' | translate }}</h3>
+          <p class="project-desc">{{ 'PROJECTS.STUDER.DESC' | translate }}</p>
+          <button class="project-link-btn" (click)="openProject('#')">
+            {{ 'PROJECTS.VIEW_MORE' | translate }} <i class="pi pi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Proyecto 2: T.E.G. (Align Right) -->
+      <div class="project-item align-right">
+        <div class="polaroid-wrapper" (click)="openProject('#')">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-frame">
+            <div class="polaroid-image-container">
+              <img src="assets/images/project-teg.jpg" alt="T.E.G. Online" class="project-img" />
+              <div class="project-overlay-badge">{{ 'PROJECTS.TEG.TAG' | translate }}</div>
+            </div>
+            <div class="polaroid-caption">
+              <span>{{ 'PROJECTS.TEG.TITLE' | translate }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-info">
+          <span class="project-tag-desktop">{{ 'PROJECTS.TEG.TAG' | translate }}</span>
+          <h3 class="project-name">{{ 'PROJECTS.TEG.TITLE' | translate }}</h3>
+          <p class="project-desc">{{ 'PROJECTS.TEG.DESC' | translate }}</p>
+          <button class="project-link-btn" (click)="openProject('#')">
+            {{ 'PROJECTS.VIEW_MORE' | translate }} <i class="pi pi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Proyecto 3: FutureWebs (Align Left) -->
+      <div class="project-item align-left">
+        <div class="polaroid-wrapper" (click)="openProject('#')">
+          <div class="polaroid-tape"></div>
+          <div class="polaroid-frame">
+            <div class="polaroid-image-container">
+              <img src="assets/images/project-futurewebs.jpg" alt="FutureWebs Brand" class="project-img" />
+              <div class="project-overlay-badge">{{ 'PROJECTS.FUTUREWEBS.TAG' | translate }}</div>
+            </div>
+            <div class="polaroid-caption">
+              <span>{{ 'PROJECTS.FUTUREWEBS.TITLE' | translate }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-info">
+          <span class="project-tag-desktop">{{ 'PROJECTS.FUTUREWEBS.TAG' | translate }}</span>
+          <h3 class="project-name">{{ 'PROJECTS.FUTUREWEBS.TITLE' | translate }}</h3>
+          <p class="project-desc">{{ 'PROJECTS.FUTUREWEBS.DESC' | translate }}</p>
+          <button class="project-link-btn" (click)="openProject('#')">
+            {{ 'PROJECTS.VIEW_MORE' | translate }} <i class="pi pi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
     </div>
 
   </div>

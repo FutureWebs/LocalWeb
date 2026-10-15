@@ -1,0 +1,239 @@
+.contact-footer-section {
+  position: relative;
+  width: 100%;
+  padding: 6rem 2rem 2rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  z-index: 3;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1rem 1rem 1rem;
+  }
+}
+
+.contact-container {
+  max-width: 1100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  .contact-header {
+    text-align: center;
+
+    .contact-subtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 2.2rem;
+      color: var(--secondary-text);
+      transform: rotate(-2deg);
+      display: inline-block;
+    }
+
+    .contact-title {
+      font-family: 'Gasoek One', sans-serif;
+      font-size: 3.5rem;
+      color: var(--text-color);
+      margin: 0.2rem 0 0 0;
+      letter-spacing: 0.05em;
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  .contact-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 4rem;
+    align-items: flex-start;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      h3 {
+        font-family: 'Gasoek One', sans-serif;
+        font-size: 2rem;
+        color: var(--text-color);
+        margin: 0;
+      }
+
+      p {
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--secondary-text);
+        margin: 0;
+      }
+
+      .social-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-top: 1rem;
+
+        .social-badge {
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+          font-family: 'Gasoek One', sans-serif;
+          font-size: 1rem;
+          color: var(--contact-card-text);
+          text-decoration: none;
+          background: var(--contact-card-bg);
+          padding: 0.8rem 1.2rem;
+          border-radius: 6px;
+          box-shadow: 0 4px 15px var(--polaroid-shadow);
+          transition: transform 0.2s ease, background 0.2s ease;
+          width: fit-content;
+
+          i {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+          }
+
+          &:hover {
+            transform: translateX(4px);
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+
+    .contact-form {
+      background: var(--contact-card-bg);
+      color: var(--contact-card-text);
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 15px 35px var(--polaroid-shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      box-sizing: border-box;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        label {
+          font-family: 'Gasoek One', sans-serif;
+          font-size: 0.85rem;
+          color: var(--contact-card-text);
+          letter-spacing: 0.05em;
+        }
+
+        input, textarea {
+          width: 100%;
+          padding: 0.9rem;
+          font-family: system-ui, -apple-system, sans-serif;
+          font-size: 1rem;
+          background: var(--contact-input-bg);
+          border: 1px solid var(--contact-input-border);
+          border-radius: 4px;
+          color: var(--contact-card-text);
+          box-sizing: border-box;
+          transition: border-color 0.2s ease;
+
+          &::placeholder {
+            color: var(--secondary-text);
+            opacity: 0.7;
+          }
+
+          &:focus {
+            outline: none;
+            border-color: var(--accent-color);
+          }
+        }
+
+        textarea {
+          resize: vertical;
+        }
+      }
+
+      .submit-btn {
+        background: var(--text-color);
+        color: var(--bg-color);
+        border: none;
+        padding: 1rem;
+        font-family: 'Gasoek One', sans-serif;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+          opacity: 0.9;
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+
+      .alert-success {
+        font-family: 'Caveat', cursive;
+        font-size: 1.4rem;
+        color: #27ae60;
+        margin: 0;
+        text-align: center;
+      }
+
+      .alert-error {
+        font-family: 'Caveat', cursive;
+        font-size: 1.4rem;
+        color: #c0392b;
+        margin: 0;
+        text-align: center;
+      }
+    }
+  }
+
+  .site-footer {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(0,0,0,0.1);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.9rem;
+      color: var(--secondary-text);
+      padding-bottom: 2rem;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+      .footer-tag {
+        font-family: 'Reenie Beanie', cursive;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
