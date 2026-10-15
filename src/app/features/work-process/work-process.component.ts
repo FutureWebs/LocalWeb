@@ -23,32 +23,38 @@ export class WorkProcessComponent implements AfterViewInit, OnDestroy {
     const sectionEl = this.processSection.nativeElement;
 
     this.scrollCtx = gsap.context(() => {
-      this.processRows.forEach((row, index) => {
-        const el = row.nativeElement;
-        const isDesktop = window.innerWidth > 768;
-        const direction = isDesktop ? (index % 2 === 0 ? -50 : 50) : 0;
+      ScrollTrigger.matchMedia({
+        // 🖥️ Escritorio: Mantiene toda la elegancia de la animación en zig-zag con GSAP
+        "(min-width: 769px)": () => {
+          this.processRows.forEach((row, index) => {
+            const el = row.nativeElement;
+            const direction = index % 2 === 0 ? -50 : 50;
 
-        // Definimos un start específico para compu y otro para celular
-        const triggerStart = isDesktop ? 'top 85%' : 'top 250%';
+            gsap.fromTo(el,
+              { opacity: 0, x: direction, y: 30 },
+              {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 85%',
+                  toggleActions: 'play none none none'
+                }
+              }
+            );
+          });
+        },
 
-        gsap.fromTo(el,
-          { opacity: 0, x: direction, y: 30 },
-          {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            duration: 0.8,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: el,
-              start: triggerStart,
-              toggleActions: 'play none none none'
-            }
-          }
-        );
+        // 📱 Celular: Cero ScrollTrigger pesado. Los elementos se muestran perfectos y estáticos sin tirones ni fondo bailando
+        "(max-width: 768px)": () => {
+          this.processRows.forEach((row) => {
+            gsap.set(row.nativeElement, { opacity: 1, x: 0, y: 0 });
+          });
+        }
       });
-
-      ScrollTrigger.refresh();
     }, sectionEl);
   }
 
