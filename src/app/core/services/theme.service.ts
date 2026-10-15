@@ -1,20 +1,23 @@
-import { Injectable, signal, inject } from '@angular/core';
+import {Injectable, signal, inject, Inject, PLATFORM_ID} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import {isPlatformBrowser} from '@angular/common';
 
 export type Language = 'en' | 'es';
 export type GravityState = 'normal' | 'unstable' | 'absorbing' | 'void';
 export type AppView = 'main' | 'projects'; //
+export type Theme = 'light' | 'dark';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
   private translate = inject(TranslateService);
   private readonly langKey = 'preferred_language';
+  private readonly themeKey = 'app-theme';
 
   // Usamos Signals en lugar de BehaviorSubject (estándar de Angular 18+)
   public currentLanguage = signal<Language>('es');
   public gravityState = signal<GravityState>('normal');
   public currentView = signal<AppView>('main');
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.translate.addLangs(['es', 'en']);
     this.initializeLanguage();
   }
@@ -54,22 +57,71 @@ export class ThemeService {
     this.translate.use(lang).subscribe();
   }
 
-  // --- LÓGICA DEL AGUJERO NEGRO (GRAVEDAD) ---
+  setTheme(theme: Theme, options?: { animate?: boolean; event?: MouseEvent }) {
+    if (!isPlatformBrowser(this.platformId)) return;
 
-  setUnstableGravity(): void {
-    this.gravityState.set('unstable');
+    const animate = options?.animate ?? true;
+    const event = options?.event;
+
+    if (this.current === theme && animate) return;
+
+    // Si no se requiere animación o el navegador no la soporta
+    if (!animate || !(document as any).startViewTransition) {
+      this.applyThemeDOM(theme);
+      return;
+    }
+
+    // 1. Obtener las coordenadas del clic. Si no hay evento, usamos el centro de la pantalla.
+    const x = (event?.clientX && event.clientX > 0) ? event.clientX : window.innerWidth / 2;
+    const y = (event?.clientY && event.clientY > 0) ? event.clientY : window.innerHeight / 2;
+
+    // 2. Calcular la distancia desde el clic hasta la esquina más lejana de la pantalla (Radio final)
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    // 3. Iniciar la transición de vista
+    const transition = (document as any).startViewTransition(() => {
+      this.applyThemeDOM(theme);
+    });
+
+    // 4. Cuando la transición esté lista, animamos el pseudo-elemento "new" (el nuevo tema)
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          // Definimos el camino del clip-path: de un círculo de 0px a uno que cubre la pantalla
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`
+          ],
+        },
+        {
+          duration: 500,
+          easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+          // Animamos la capa nueva para que se expanda sobre la vieja
+          pseudoElement: '::view-transition-new(root)',
+        }
+      );
+    });
   }
 
-  triggerBlackHoleAbsorption(): void {
-    this.gravityState.set('absorbing');
-
-    // Simula el paso al "vacío" de tranquilidad después de 3 segundos
-    setTimeout(() => {
-      this.gravityState.set('void');
-    }, 3000);
+  private applyThemeDOM(theme: Theme) {
+    document.body.classList.remove('theme-light', 'theme-dark');
+    document.body.classList.add(`theme-${theme}`);
+    localStorage.setItem(this.themeKey, theme);
   }
 
-  resetGravity(): void {
-    this.gravityState.set('normal');
+  loadTheme() {
+    if (!isPlatformBrowser(this.platformId)) return;
+    const theme = (localStorage.getItem(this.themeKey) as Theme) || 'light';
+    this.setTheme(theme, { animate: false });
   }
+
+  get current(): Theme {
+    if (!isPlatformBrowser(this.platformId)) return 'light';
+    return (localStorage.getItem(this.themeKey) as Theme) || 'light';
+  }
+
+
 }

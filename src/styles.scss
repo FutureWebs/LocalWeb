@@ -1,95 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Reenie+Beanie&display=swap');
+@import "primeicons/primeicons.css";
 
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  font-family: 'Gasoek One', sans-serif;
+  --bg-color: #edece3;
+  --text-color: #303030;
+  --secondary-text: #656565;
+  --accent-color: #3498db;
+  --sketch-color: rgba(48, 48, 48, 0.16);
+
+  --polaroid-bg: #ffffff;
+  --polaroid-shadow: rgba(0, 0, 0, 0.15);
+  --tape-color: rgba(240, 230, 210, 0.77);
+  --about-title-color: var(--text-color);
+  --text-color-inverse: #4e4d4d;
+
+  --contact-card-bg: #ffffff;
+  --contact-card-text: #303030;
+  --contact-input-bg: #f5f4ed;
+  --contact-input-border: rgba(48, 48, 48, 0.15);
 }
 
-body, html {
+/* Light Theme */
+body.theme-light {
+  --bg-color: #edece3;
+  --text-color: #303030;
+  --secondary-text: #656565;
+  --accent-color: #3498db;
+  --sketch-color: rgba(48, 48, 48, 0.16);
+
+  --polaroid-bg: #ffffff;
+  --polaroid-shadow: rgba(0, 0, 0, 0.12);
+  --tape-color: rgba(230, 220, 200, 0.75);
+  --text-color-inverse: #4e4d4d;
+
+  --contact-card-bg: #ffffff;
+  --contact-card-text: #303030;
+  --contact-input-bg: #f5f4ed;
+  --contact-input-border: rgba(48, 48, 48, 0.15);
+}
+
+/* Dark Theme (Grafito) */
+body.theme-dark {
+  --bg-color: #212121;
+  --text-color: #edece3;
+  --secondary-text: #c6c2b5;
+  --accent-color: #3498db;
+  --sketch-color: rgba(245, 240, 232, 0.06);
+
+  --polaroid-bg: #ffffff;
+  --polaroid-shadow: rgba(0, 0, 0, 0.5);
+  --tape-color: rgba(230, 220, 200, 0.75);
+  --text-color-inverse: #333333;
+
+  --contact-card-bg: #ffffff;
+  --contact-card-text: #303030;
+  --contact-input-bg: #f5f4ed;
+  --contact-input-border: rgba(48, 48, 48, 0.15);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Contenedor principal transparente para que el patrón de fondo se vea SIEMPRE */
+main.main-viewport {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+app-background-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden; /* ESTO ES CLAVE: Mata el scroll nativo */
-  background-color: transparent;
-  color: #ffffff;
-  font-family: sans-serif;
-  touch-action: none; /* Evita que el móvil intente hacer scroll nativo y quite el error de consola */
-}
-
-/* Configuraciones recomendadas por Lenis para Smooth Scroll */
-html.lenis, html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-.lenis.lenis-smooth iframe {
+  z-index: 0;
   pointer-events: none;
 }
 
-/* Agrega esto a tu src/styles.scss */
-
-.living-title {
-  font-size: 5rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-  color: #ffffff;
-  margin-bottom: 1rem;
-  animation: breathe 5s infinite ease-in-out;
+app-header {
+  position: relative;
+  z-index: 9999;
 }
 
-/* La magia para que se lea sobre fondos brillantes */
-.subtitle {
-  font-size: 1.5rem !important;
-  color: #c0c0c0 !important; /* Un gris un poco más claro ayuda */
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  font-weight: 500;
+/* =========================================
+   CUSTOM SCROLLBAR (Estilo Notebook / Sketch)
+   ========================================= */
 
-  /* Múltiples sombras: una corta y nítida, y otras amplias y difuminadas
-     para crear un halo oscuro protector alrededor de las letras */
-  text-shadow:
-    0px 2px 4px rgba(0, 0, 0, 0.9),
-    0px 4px 10px rgba(0, 0, 0, 0.8),
-    0px 0px 20px rgba(0, 0, 0, 0.8),
-    0px 0px 40px rgba(0, 0, 0, 0.7);
+/* Ancho general de la barra */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
 }
 
-@keyframes breathe {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.9;
-    text-shadow:
-      0 2px 10px rgba(0, 0, 0, 0.8),
-      0 0 15px rgba(255, 255, 255, 0.1);
-  }
-  50% {
-    transform: translateY(-8px) scale(1.02);
-    opacity: 1;
-    text-shadow:
-      0 4px 15px rgba(0, 0, 0, 0.9),
-      0 0 20px rgba(255, 255, 255, 0.4),
-      0 0 40px rgba(255, 255, 255, 0.2);
+/* El riel / fondo por donde se desliza la barra */
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-left: 1px dashed rgba(0, 0, 0, 0.05); // Un sutil toque de línea de cuaderno
+}
+
+/* El "puntero" o barra que se mueve */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-text);
+  border-radius: 5px;
+  border: 2px solid var(--bg-color); /* Crea un efecto flotante muy limpio */
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: var(--text-color);
   }
 }
 
-/* Agrega esto al final de src/styles.scss */
-@media (max-width: 768px) {
-  .living-title {
-    font-size: 3.2rem;
-    letter-spacing: 1px;
-    margin-bottom: 0.5rem;
-  }
+/* Soporte para navegadores basados en Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-text) var(--bg-color);
+}
 
-  .subtitle {
-    font-size: 1rem !important;
-    letter-spacing: 2px;
-    line-height: 1.4;
-  }
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.05em;
+}
+
+/* View Transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 9999;
 }

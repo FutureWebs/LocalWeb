@@ -1,7 +1,19 @@
-<!-- header.component.html (o en el template inline) -->
 <header class="header-container">
+  <div class="logo">FUTURE</div>
   <div class="actions">
-    <button class="btn-lang" (click)="toggleLang()">{{ 'HEADER.CHANGE_LANG' | translate }}</button>
-    <button class="btn-contact">{{ 'HEADER.CONTACT' | translate }}</button>
+    <button class="btn-lang" [title]="'HEADER.CHANGE_LANG' | translate" (click)="toggleLang()">
+      <i class="pi pi-language"></i>
+    </button>
+    <button
+      type="button"
+      class="header__control-btn"
+      (click)="toggleTheme($event)"
+      [title]="'HEADER.TOGGLE_THEME' | translate">
+      <i [class]="currentThemeIcon"></i>
+    </button>
+
+    <button class="btn-contact" [title]="'HEADER.CONTACT' | translate" (click)="scrollToContact()">
+      <i class="pi pi-envelope"></i>
+    </button>
   </div>
 </header>

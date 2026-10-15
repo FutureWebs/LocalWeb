@@ -1,0 +1,14 @@
+<div class="background-grid">
+  @for (item of items(); track $index) {
+    <div class="grid-cell">
+      <span
+        class="sketch-text font-{{ item.font }}"
+        [style.transform]="'rotate(' + item.rotate + 'deg)'"
+        [style.font-size]="item.size"
+        [style.font-style]="item.italic ? 'italic' : 'normal'"
+        [style.font-weight]="item.weight || 'normal'">
+        {{ item.currentText }}
+      </span>
+    </div>
+  }
+</div>

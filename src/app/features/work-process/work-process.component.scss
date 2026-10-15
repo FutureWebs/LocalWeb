@@ -1,0 +1,149 @@
+.process-section {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  padding: 6rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  z-index: 3;
+  overflow: visible;
+
+  @media (max-width: 768px) {
+    padding: 4rem 1rem;
+    min-height: auto;
+  }
+}
+
+.process-container {
+  max-width: 1000px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+
+  .process-header {
+    text-align: center;
+
+    .process-subtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 2.2rem;
+      color: var(--secondary-text);
+      transform: rotate(-2deg);
+      display: inline-block;
+    }
+
+    .process-title {
+      font-family: 'Gasoek One', sans-serif;
+      font-size: 3.5rem;
+      color: var(--text-color);
+      margin: 0.2rem 0 0 0;
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  .process-zigzag-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+
+    .process-row {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      will-change: opacity, transform;
+
+      /* Zig-zag layout */
+      &.align-left {
+        flex-direction: row;
+        text-align: left;
+      }
+
+      &.align-right {
+        flex-direction: row-reverse;
+        text-align: right;
+      }
+
+      @media (max-width: 768px) {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1.5rem;
+      }
+
+      /* Número artístico gigante de fondo estilo boceto */
+      .process-number-art {
+        font-family: 'Gasoek One', sans-serif;
+        font-size: 8rem;
+        line-height: 1;
+        color: var(--text-color);
+        opacity: 0.08;
+        min-width: 120px;
+        text-align: center;
+        user-select: none;
+        pointer-events: none;
+
+        @media (max-width: 768px) {
+          font-size: 5rem;
+          min-width: auto;
+          margin-bottom: -2rem;
+        }
+      }
+
+      .process-content-box {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        max-width: 600px;
+
+        .process-heading {
+          font-family: 'Gasoek One', sans-serif;
+          font-size: 2.4rem;
+          color: var(--text-color);
+          margin: 0;
+
+          @media (max-width: 768px) {
+            font-size: 1.8rem;
+          }
+        }
+
+        .process-text {
+          font-family: system-ui, -apple-system, sans-serif;
+          font-size: 1.2rem;
+          line-height: 1.7;
+          color: var(--secondary-text);
+          margin: 0;
+
+          @media (max-width: 768px) {
+            font-size: 1.05rem;
+          }
+        }
+
+        .sketch-stack-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.6rem;
+          margin-top: 0.5rem;
+
+          @media (max-width: 768px) {
+            justify-content: center;
+          }
+
+          span {
+            font-family: 'Gasoek One', sans-serif;
+            font-size: 0.8rem;
+            background: var(--polaroid-bg);
+            color: var(--text-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px var(--polaroid-shadow);
+            border: 1px dashed rgba(0,0,0,0.1);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 80px); /* Ajustado para dejar espacio al header fijo */
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  z-index: 2;
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    max-width: 900px;
+    width: 100%;
+
+    .hero-title {
+      font-family: 'Gasoek One', sans-serif;
+      font-size: 6rem;
+      color: var(--text-color);
+      margin: 0;
+      line-height: 1;
+      letter-spacing: 0.05em;
+
+      .italic-text {
+        font-family: 'Caveat', cursive;
+        font-size: 5rem;
+        font-weight: 700;
+        color: var(--secondary-text);
+        margin-right: 0.4rem;
+        display: inline-block;
+        transform: rotate(-5deg);
+      }
+
+      @media (max-width: 768px) {
+        font-size: 4rem;
+        .italic-text {
+          font-size: 3.2rem;
+        }
+      }
+    }
+
+    .hero-subtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      color: var(--secondary-text);
+      margin: 0 0 1rem 0;
+      max-width: 600px;
+
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .hero-cta {
+      .cta-btn {
+        background: var(--text-color);
+        color: var(--bg-color);
+        border: 1.5px solid var(--text-color);
+        padding: 0.9rem 2.2rem;
+        border-radius: 30px;
+        cursor: pointer;
+        font-family: 'Gasoek One', sans-serif;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        box-shadow: 0 10px 25px var(--polaroid-shadow);
+        transition: transform 0.2s ease, opacity 0.2s ease;
+
+        i {
+          font-size: 1.1rem;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          opacity: 0.95;
+        }
+      }
+    }
+  }
+}

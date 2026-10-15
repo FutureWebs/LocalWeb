@@ -1,58 +1,76 @@
 {
+  "HERO": {
+    "SOMOS": "We are",
+    "SUBTITLE": "Custom software development, clean architectures, and unique digital experiences.",
+    "CONTACT": "Contact Us"
+  },
   "HEADER": {
+    "CHANGE_LANG": "ES",
     "CONTACT": "Contact Us",
-    "CHANGE_LANG": "ES"
+    "TOGGLE_THEME": "Toggle Theme"
   },
-  "NAV": {
-    "HOME": "Home",
-    "ABOUT": "About Us",
-    "VISION": "Our Vision",
-    "PROJECTS": "Projects",
-    "CONTACT": "Contact"
+
+  "ABOUT": {
+    "SUBTITLE": "About us",
+    "TITLE": "ABOUT FUTURE WEBS",
+    "DESCRIPTION_1": "We craft unique digital experiences, pairing high-impact design with solid and scalable software architecture.",
+    "DESCRIPTION_2": "Turning complex ideas into clean, agile, and future-proof code.",
+    "POLAROID_TITLE": "OUR PROJECTS",
+    "POLAROID_SUBTITLE": "Scroll down to enter the showcase"
   },
-  "SCROLLY": {
-    "HOME": {
-      "TITLE": "FutureWebs",
-      "SUBTITLE": "Cross the event horizon.",
-      "BTN_START": "Start Journey"
+
+  "PROJECTS": {
+    "SUBTITLE": "What we have built",
+    "TITLE": "Featured Projects",
+    "VIEW_MORE": "View project",
+    "STUDER": {
+      "TITLE": "STUDER Platform",
+      "DESC": "Modular educational platform built on interactive learning blocks, challenges, and social validation.",
+      "TAG": "Angular & Spring Boot"
     },
-    "ABOUT": {
-      "TITLE": "About Us",
-      "TEXT": "Robust architectures and immersive experiences."
+    "TEG": {
+      "TITLE": "T.E.G. Online",
+      "DESC": "Digital adaptation of the classic global strategy and tactics board game, optimized for smooth multiplayer matches.",
+      "TAG": "Java & Clean Architecture"
     },
-    "VISION": {
-      "TITLE": "Our Vision",
-      "TEXT": "Pushing engineering to the limit. Breaking visual monotony."
-    },
-    "PROJECTS": {
-      "TITLE": "Projects",
-      "TEXT": "Complex systems, elegant solutions.",
-      "BTN_VIEW": "View Projects"
-    },
-    "CONTACT": {
-      "TITLE": "Contact",
-      "TEXT": "The singularity awaits.",
-      "PLACEHOLDER_NAME": "Name",
-      "PLACEHOLDER_EMAIL": "Email",
-      "PLACEHOLDER_MESSAGE": "Your idea...",
-      "BTN_SUBMIT": "Send"
+    "FUTUREWEBS": {
+      "TITLE": "FutureWebs Brand",
+      "DESC": "Comprehensive visual identity, high-conversion landing pages, and interactive canvas components.",
+      "TAG": "UI/UX & SCSS"
     }
   },
-  "PROJECTS_LIST": {
-    "BTN_BACK": "Return",
-    "MAIN_TITLE": "Our Experiences",
-    "BTN_EXPLORE": "Explore Code",
-    "PROJ_1": {
-      "TITLE": "Modular Educational Platform",
-      "DESC": "Full-Stack architecture in Angular and Spring Boot. Interactive content blocks management and social validation."
+  "PROCESS": {
+    "SUBTITLE": "The method behind the sketch",
+    "TITLE": "How We Work",
+    "STEP1": {
+      "NAME": "Planning & Strategy",
+      "DESC": "We deeply understand your business, requirements, and realistic possibilities to find the perfect architecture and tech solution."
     },
-    "PROJ_2": {
-      "TITLE": "Automated Video Generator",
-      "DESC": "Pipeline designed for YouTube channels. Script parsing, automated voice synthesis, and 2D cutout animation."
+    "STEP2": {
+      "NAME": "Construction & Code",
+      "DESC": "We build smooth interfaces and robust backend services using modular components and a high-performance modern stack."
     },
-    "PROJ_3": {
-      "TITLE": "Competitive C++ Transpiler",
-      "DESC": "Conceptual design of a specific transpiler language for extreme optimization in highly competitive environments."
+    "STEP3": {
+      "NAME": "Deployment & Delivery",
+      "DESC": "We launch your product ensuring full optimization, offering continuous support, domain management, and long-term maintenance."
+    }
+  },
+  "CONTACT": {
+    "SUBTITLE": "Let's talk about your next project",
+    "TITLE": "Contact Us",
+    "INFO_TITLE": "Let's build together",
+    "INFO_DESC": "Do you have an idea in mind or need to scale your platform? Reach out through any of our official channels or fill out the form.",
+    "FORM": {
+      "NAME": "Your Name",
+      "NAME_PLACEHOLDER": "Enter your full name",
+      "EMAIL": "Your Email",
+      "EMAIL_PLACEHOLDER": "you@email.com",
+      "MESSAGE": "Message or Project",
+      "MESSAGE_PLACEHOLDER": "Tell us about your project...",
+      "SEND": "Send Message",
+      "SENDING": "Sending...",
+      "SUCCESS": "Message sent successfully! We'll get in touch soon.",
+      "ERROR": "There was an error sending your message. Please try again."
     }
   }
 

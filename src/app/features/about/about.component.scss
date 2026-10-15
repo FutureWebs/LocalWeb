@@ -1,0 +1,187 @@
+.about-section {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  box-sizing: border-box;
+  z-index: 2;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    min-height: auto;
+    overflow: visible;
+  }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.about-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  will-change: opacity, transform;
+
+  .about-subtitle {
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    color: var(--secondary-text);
+    transform: rotate(-2deg);
+  }
+
+  .about-title {
+    font-family: 'Gasoek One', sans-serif;
+    font-size: 3.5rem;
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: 0.03em;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  .about-description {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+
+    &.highlight {
+      font-family: 'Kalam', cursive;
+      font-size: 1.25rem;
+      color: var(--secondary-text);
+    }
+  }
+}
+
+.about-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+}
+
+.polaroid-wrapper {
+  position: relative;
+  transform: rotate(3deg);
+  will-change: transform;
+  z-index: 10;
+  width: 320px;
+  height: 400px;
+  transform-origin: center center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.18);
+
+  @media (max-width: 768px) {
+    transform: rotate(0deg);
+    width: 280px;
+    height: 360px;
+    margin: 0 auto;
+  }
+
+  .polaroid-tape {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-4deg);
+    width: 110px;
+    height: 32px;
+    background: var(--tape-color);
+    backdrop-filter: blur(2px);
+    border-left: 2px dashed rgba(0,0,0,0.1);
+    border-right: 2px dashed rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    z-index: 20;
+    will-change: opacity;
+  }
+
+  .polaroid-frame {
+    background: var(--polaroid-bg);
+    padding: 1.2rem 1.2rem 2.8rem 1.2rem;
+    border-radius: 6px;
+    box-shadow: 0 15px 35px var(--polaroid-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    will-change: background, border-radius, padding, box-shadow;
+  }
+
+  .polaroid-inner-content {
+    width: 100%;
+    height: calc(100% - 2rem);
+    background: var(--bg-color);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .preview-hero {
+      padding: 1.5rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, var(--accent-color) 0%, var(--bg-color) 100%);
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      will-change: opacity;
+
+
+
+      h3 {
+        font-family: 'Gasoek One', sans-serif;
+        margin: 0;
+        font-size: 1.4rem;
+        color: var(--text-color);
+        letter-spacing: 0.05em;
+      }
+
+      p {
+        font-family: 'Reenie Beanie', cursive;
+        font-size: 1.3rem;
+        margin: 0;
+        color: var(--secondary-text);
+      }
+    }
+  }
+
+  .polaroid-caption {
+    text-align: center;
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 1.4rem;
+    color: var(--text-color-inverse);
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: opacity;
+  }
+}

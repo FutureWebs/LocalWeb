@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:ital,wght@0,400;0,700;1,400&family=Reenie+Beanie&family=Kalam:wght@300;400;700&family=Great+Vibes&family=Petit+Formal+Script&display=swap');
+
+.background-grid {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-auto-rows: minmax(130px, auto);
+  gap: 1.5rem;
+  padding: 2rem;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden; /* Oculta desbordamientos internos pero deja el scroll libre afuera */
+
+  /* Desactiva animaciones o cálculos pesados en pantallas táctiles pequeñas */
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    padding: 1rem;
+    gap: 1rem;
+  }
+}
+
+.grid-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sketch-text {
+  color: var(--sketch-color);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  display: inline-block;
+
+  &.font-gasoek {
+    font-family: 'Gasoek One', sans-serif;
+    letter-spacing: 0.05em;
+  }
+  &.font-reenie {
+    font-family: 'Reenie Beanie', cursive;
+  }
+  &.font-caveat {
+    font-family: 'Caveat', cursive;
+  }
+  &.font-kalam {
+    font-family: 'Kalam', cursive;
+  }
+  &.font-cursive-script {
+    font-family: 'Great Vibes', cursive;
+  }
+  &.font-elegant {
+    font-family: 'Petit Formal Script', cursive;
+  }
+}
