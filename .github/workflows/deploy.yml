@@ -26,7 +26,7 @@ jobs:
           echo "export const environment = { production: true, telegramBotToken: '${{ secrets.TELEGRAM_BOT_TOKEN }}', telegramChatId: '${{ secrets.TELEGRAM_CHAT_ID }}' };" > src/environments/environment.prod.ts
 
       - name: Build Project
-        run: npm run build -- --configuration production
+        run: npm run build -- --configuration production --base-href /LocalWeb/
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
