@@ -42,7 +42,7 @@ export class WorkProcessComponent implements AfterViewInit, OnDestroy {
             scrollTrigger: {
               trigger: el,
               start: triggerStart,
-              toggleActions: 'play none none reverse'
+              toggleActions: 'play none none none'
             }
           }
         );
